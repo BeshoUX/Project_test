@@ -1,0 +1,123 @@
+expression 'Crystal Plaza Maadi Compound' =
+		let
+		  Source = Csv.Document(File.Contents("G:\Graduation Project\Graduation Project Data Source.xlsm - Crystal Plaza Maadi Compound.csv"), [Delimiter = ",", Columns = 21, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Crystal Plaza Maadi Compound"),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([اسم العميل] <> "Paid Installments" and [اسم العميل] <> "Remaining Installments" and [اسم العميل] <> "Summary Total"))
+		in
+		  #"Filtered Rows"
+	lineageTag: e265b096-e8e3-4ffe-abec-c7161257a5a3
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Degla Landmark' =
+		let
+		  Source = Csv.Document(File.Contents("G:\Graduation Project\Graduation Project Data Source.xlsm - Degla Landmark.csv"), [Delimiter = ",", Columns = 21, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", Int64.Type}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type date}, {"POC", Int64.Type}, {"رقم عقد البيع", type text}, {"Date", type date}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Degla Landmark"),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([اسم العميل] <> "Paid Installments" and [اسم العميل] <> "Remaining Installments" and [اسم العميل] <> "Summary Total"))
+		in
+		  #"Filtered Rows"
+	lineageTag: 1f9f8afe-d1b6-4051-a709-30da56af7beb
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Degla Palms 6 October Compound' =
+		let
+		  Source = Csv.Document(File.Contents("G:\Graduation Project\Graduation Project Data Source.xlsm - Degla Palms 6 October Compound.csv"), [Delimiter = ",", Columns = 21, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", type text}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Custom", each "Degla Palms 6 October Compound"),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([اسم العميل] <> "Paid Installments" and [اسم العميل] <> "Remaining Installments" and [اسم العميل] <> "Summary Total")),
+		    #"Renamed Columns" = Table.RenameColumns(#"Filtered Rows",{{"Custom", "Project Name"}})
+		in
+		  #"Renamed Columns"
+	lineageTag: 6d116e79-3812-47da-a0c8-8930f9800530
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Lake Front 6' =
+		let
+		  Source = Csv.Document(File.Contents("G:\Graduation Project\Graduation Project Data Source.xlsm - Lake Front 6.csv"), [Delimiter = ",", Columns = 21, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", type text}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Lake Front 6"),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([اسم العميل] <> "Paid Installments" and [اسم العميل] <> "Remaining Installments" and [اسم العميل] <> "Summary Total"))
+		in
+		  #"Filtered Rows"
+	lineageTag: e7e8b09f-aeb9-42e0-b259-70517055a236
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'One Kattameya Compound' =
+		let
+		  Source = Csv.Document(File.Contents("G:\Graduation Project\Graduation Project Data Source.xlsm - One Kattameya Compound.csv"), [Delimiter = ",", Columns = 21, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "One Kattameya Compound"),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([اسم العميل] <> "Paid Installments" and [اسم العميل] <> "Remaining Installments" and [اسم العميل] <> "Summary Total"))
+		in
+		  #"Filtered Rows"
+	lineageTag: 7c89f93e-79b4-400e-9740-21a5a946095d
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Rihana =
+		let
+		  Source = Csv.Document(File.Contents("G:\Graduation Project\Graduation Project Data Source.xlsm - Rihana.csv"), [Delimiter = ",", Columns = 21, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1 ", type text}, {"الدفعة 2 ", type text}, {"الدفعة3 ", type text}, {"الدفعة 4 ", type text}, {"الدفعة 5 ", type text}, {"الدفعة 6 ", type text}, {"الدفعة 7 ", type text}, {"مجموع الدفعات المستحقة ", Int64.Type}, {"مجموع الدفعات المدفوعة ", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع ", type text}, {"POC", type number}, {"رقم عقد البيع ", type text}, {"Date", type text}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Rihana"),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([اسم العميل] <> "Paid Installments" and [اسم العميل] <> "Remaining Installments" and [اسم العميل] <> "Summary Total")),
+		    #"Trimmed Text" = Table.TransformColumns(Table.TransformColumnTypes(#"Filtered Rows", {{"مجموع الدفعات المستحقة ", type text}, {"مجموع الدفعات المدفوعة ", type text}, {"POC", type text}}, "en-US"),{{"الدفعة 1 ", Text.Trim, type text}, {"الدفعة 2 ", Text.Trim, type text}, {"الدفعة3 ", Text.Trim, type text}, {"الدفعة 4 ", Text.Trim, type text}, {"الدفعة 5 ", Text.Trim, type text}, {"الدفعة 6 ", Text.Trim, type text}, {"الدفعة 7 ", Text.Trim, type text}, {"مجموع الدفعات المستحقة ", Text.Trim, type text}, {"مجموع الدفعات المدفوعة ", Text.Trim, type text}, {"البنك", Text.Trim, type text}, {"تاريخ عقد البيع ", Text.Trim, type text}, {"POC", Text.Trim, type text}, {"رقم عقد البيع ", Text.Trim, type text}, {"Date", Text.Trim, type text}, {"Project Name", Text.Trim, type text}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Trimmed Text",{{"الدفعة 1 ", "الدفعة 1"}, {"الدفعة 2 ", "الدفعة 2"}, {"الدفعة3 ", "الدفعة3"}, {"الدفعة 4 ", "الدفعة 4"}, {"الدفعة 5 ", "الدفعة 5"}, {"الدفعة 6 ", "الدفعة 6"}, {"الدفعة 7 ", "الدفعة 7"}, {"مجموع الدفعات المستحقة ", "مجموع الدفعات المستحقة"}, {"مجموع الدفعات المدفوعة ", "مجموع الدفعات المدفوعة"}, {"تاريخ عقد البيع ", "تاريخ عقد البيع"}, {"رقم عقد البيع ", "رقم عقد البيع"}})
+		in
+		  #"Renamed Columns"
+	lineageTag: 148ab70b-b505-4900-aac2-723c4a056da1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Skyline Katamya Compound' =
+		let
+		  Source = Csv.Document(File.Contents("G:\Graduation Project\Graduation Project Data Source.xlsm - Skyline Katamya Compound.csv"), [Delimiter = ",", Columns = 21, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", type text}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type date}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Skyline Katamya Compound"),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([اسم العميل] <> "Paid Installments" and [اسم العميل] <> "Remaining Installments" and [اسم العميل] <> "Summary Total"))
+		in
+		  #"Filtered Rows"
+	lineageTag: 30b20b5a-8079-4887-88cd-94c6d109edf5
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Zahra North Coast' =
+		let
+		  Source = Csv.Document(File.Contents("G:\Graduation Project\Graduation Project Data Source.xlsm - Zahra North Coast.csv"), [Delimiter = ",", Columns = 21, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", Int64.Type}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", Int64.Type}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type date}, {"POC", Int64.Type}, {"رقم عقد البيع", type text}, {"Date", type text}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Zahra North Coast"),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([اسم العميل] <> "Paid Installments" and [اسم العميل] <> "Remaining Installments" and [اسم العميل] <> "Summary Total"))
+		in
+		  #"Filtered Rows"
+	lineageTag: 867f9ded-4ff2-476d-b28a-155d22d46467
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

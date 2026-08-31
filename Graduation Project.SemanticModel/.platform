@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Graduation Project"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "67169009-fc6a-4fd6-b45a-7724b353b42a"
+  }
+}

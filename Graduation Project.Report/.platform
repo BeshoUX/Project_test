@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Graduation Project"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "47d31e5d-4ae4-4ce8-b805-bdd02944bea3"
+  }
+}

@@ -1,0 +1,5 @@
+relationship e02bf449-29c7-4e20-b89a-d5c29bd57d96
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'All Projects'.'تاريخ عقد البيع'
+	toColumn: LocalDateTable_7872a370-2f43-4c92-b658-2abd2db19f6f.Date
+

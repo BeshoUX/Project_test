@@ -1,0 +1,44 @@
+table 'Morshedy Projects'
+	lineageTag: fbd8f57c-742d-4777-85ad-4dd990f5b955
+
+	column 'Project Name'
+		dataType: string
+		lineageTag: 81a1527c-4df5-4401-a2bf-24e89faef4c7
+		summarizeBy: none
+		sourceColumn: Project Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'الاسم بالعربي'
+		dataType: string
+		lineageTag: 9a8889ce-4023-47f1-a58e-e8df2886c2b3
+		summarizeBy: none
+		sourceColumn: الاسم بالعربي
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Adopted Total Units'
+		dataType: int64
+		formatString: 0
+		lineageTag: 842e40a0-1673-436f-8fe3-6e7bd4e143a8
+		summarizeBy: sum
+		sourceColumn: Adopted Total Units
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Morshedy Projects' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("G:\Graduation Project\Morshedy_8_Projects_Advertised_Total_Units.xlsx - Morshedy Projects.csv"), [Delimiter = ",", Columns = 3, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Changed column type" = Table.TransformColumnTypes(Source, {{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}),
+				    #"Removed Top Rows" = Table.Skip(#"Changed column type",3),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Project Name", type text}, {"الاسم بالعربي", type text}, {"Adopted Total Units", Int64.Type}})
+				in
+				  #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
