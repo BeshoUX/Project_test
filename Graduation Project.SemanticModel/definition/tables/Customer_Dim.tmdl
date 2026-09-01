@@ -1,0 +1,120 @@
+table Customer_Dim
+	lineageTag: a6f4917e-f800-4e77-808c-adc4f47723a4
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: 2c889ac8-cf94-42fb-8d24-a514cf27a722
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer ID'
+		dataType: string
+		lineageTag: 071dc156-4f24-431a-b48c-c08d84043261
+		summarizeBy: none
+		sourceColumn: Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit No'
+		dataType: string
+		lineageTag: e04869d3-fd6b-4a81-b14b-8942918111fd
+		summarizeBy: none
+		sourceColumn: Unit No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Code'
+		dataType: string
+		lineageTag: d39c21dd-dcbb-4b22-ba9b-2414557bfb09
+		summarizeBy: none
+		sourceColumn: Unit Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Price'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: fb51458c-f9fa-4108-ad50-d2fa51e03d8a
+		summarizeBy: none
+		sourceColumn: Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Completion Rate'
+		dataType: double
+		lineageTag: 1a945eb4-7b46-4e9c-9ad6-87c616e9942a
+		summarizeBy: none
+		sourceColumn: Completion Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Installments Table'
+		dataType: string
+		lineageTag: 8839e99b-bf7c-44c5-9d85-ef8d1803c635
+		summarizeBy: none
+		sourceColumn: Installments Table
+
+		annotation SummarizationSetBy = Automatic
+
+	column BanK
+		dataType: string
+		lineageTag: cca4a7fa-3b4c-4a70-9a5c-44cb1fbc3b61
+		summarizeBy: none
+		sourceColumn: BanK
+
+		annotation SummarizationSetBy = Automatic
+
+	column POC
+		dataType: double
+		lineageTag: f2cba218-045e-4d40-a84d-5f1bfe65f7c8
+		summarizeBy: none
+		sourceColumn: POC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Contract No.'
+		dataType: string
+		lineageTag: f4cf4059-bde5-4ddb-8281-92b23a894aa6
+		summarizeBy: none
+		sourceColumn: Contract No.
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Customer_Dim = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"Crystal Plaza Maadi Compound", #"Degla Landmark", #"Degla Palms 6 October Compound", #"Lake Front 6", #"One Kattameya Compound", Rihana, #"Skyline Katamya Compound", #"Zahra North Coast"}),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"سعر الوحدة", Currency.Type}, {"نسبة الانجاز من الاستشاري الهندسي", Percentage.Type}, {"مجموع الدفعات المستحقة", Currency.Type}, {"مجموع الدفعات المدفوعة", Currency.Type}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Changed Type", {{"تاريخ عقد البيع", type date}}, "en-GB"),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"POC", Percentage.Type}}),
+				    #"Unpivoted Columns" = Table.UnpivotOtherColumns(#"Changed Type1", {"اسم العميل", "رقم الهوية", "رقم الوحدة", "كود الوحدة", "سعر الوحدة", "نسبة الانجاز من الاستشاري الهندسي", "جدول الدفعات", "مجموع الدفعات المستحقة", "مجموع الدفعات المدفوعة", "البنك", "تاريخ عقد البيع", "POC", "رقم عقد البيع", "Date", "Project Name"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Columns",{{"Attribute", "Installment Name"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Installment status ", each if Text.Contains(Text.From([Value]), "تم السداد") then "تم السداد"
+				else if Text.Trim(Text.From([Value])) = "غير مستحقة" then " غير مستحقة"
+				else "مستحقة"),
+				    #"Replaced Value" = Table.ReplaceValue(#"Added Custom","تم السداد","",Replacer.ReplaceText,{"Value"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","غير مستحقة","0",Replacer.ReplaceText,{"Value"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Replaced Value1",{{"Value", Currency.Type}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type2",{{"اسم العميل", "Customer Name"}, {"رقم الهوية", "Customer ID"}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns1",{{"Customer ID", type text}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Changed Type3",{{"رقم الوحدة", "Unit No"}, {"كود الوحدة", "Unit Code"}, {"سعر الوحدة", "Unit Price"}, {"نسبة الانجاز من الاستشاري الهندسي", "Completion Rate"}, {"جدول الدفعات", "Installments Table"}, {"مجموع الدفعات المستحقة", "Total Due"}, {"مجموع الدفعات المدفوعة", "Total Paid"}, {"البنك", "BanK"}, {"تاريخ عقد البيع", "Date of Contract Selling"}, {"رقم عقد البيع", "Contract No."}}),
+				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Renamed Columns2", {{"Date", type datetime}}, "en-GB"),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Changed Type with Locale1",{{"Date", type date}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type4",{"Customer Name", "Customer ID", "Unit No", "Unit Code", "Unit Price", "Completion Rate", "Installments Table", "BanK", "POC", "Contract No."}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"Customer ID"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

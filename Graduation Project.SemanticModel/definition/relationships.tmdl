@@ -1,5 +1,25 @@
-relationship e02bf449-29c7-4e20-b89a-d5c29bd57d96
+relationship 6ca66cb9-fad4-4ca7-86b5-ed70971e4870
 	joinOnDateBehavior: datePartOnly
-	fromColumn: 'All Projects'.'تاريخ عقد البيع'
-	toColumn: LocalDateTable_7872a370-2f43-4c92-b658-2abd2db19f6f.Date
+	fromColumn: 'Facts Table'.'Date of Contract Selling'
+	toColumn: LocalDateTable_def3e99b-0cb2-430c-8f5e-35d4a4576399.Date
+
+relationship cbd4b7d6-687a-4fca-a9f6-cc3cc2a88ab1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Date_Dim.Date
+	toColumn: LocalDateTable_c175f9fe-2568-470b-a8b0-4938328e42a9.Date
+
+relationship c4096a36-193f-dc1e-6970-604283e06494
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	fromColumn: 'Facts Table'.'Customer ID'
+	toColumn: Customer_Dim.'Customer ID'
+
+relationship a9552a00-02ea-4b06-82bd-f39d69c6b416
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calander.Date
+	toColumn: LocalDateTable_782701e6-7662-473c-9176-ffdbab920d31.Date
+
+relationship 2307fb99-60a0-d16e-a76a-fbc6b76153d5
+	fromColumn: 'Facts Table'.Date
+	toColumn: Calander.Date
 

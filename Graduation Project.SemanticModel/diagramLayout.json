@@ -4,40 +4,30 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 47.917327006122449,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 0
+            "x": 1076.9936524852942,
+            "y": 382.37995254591829
           },
-          "nodeIndex": "Crystal Plaza Maadi Compound",
+          "nodeIndex": "Morshedy Projects",
+          "nodeLineageTag": "fbd8f57c-742d-4777-85ad-4dd990f5b955",
           "size": {
-            "height": 300,
+            "height": 152,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 284,
+            "x": 431.97998046008405,
             "y": 0
           },
-          "nodeIndex": "Degla Landmark",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 568,
-            "y": 0
-          },
-          "nodeIndex": "Degla Palms 6 October Compound",
+          "nodeIndex": "Customer_Dim",
+          "nodeLineageTag": "a6f4917e-f800-4e77-808c-adc4f47723a4",
           "size": {
             "height": 300,
             "width": 234
@@ -47,91 +37,44 @@
         {
           "location": {
             "x": 852,
-            "y": 0
+            "y": 2
           },
-          "nodeIndex": "Lake Front 6",
+          "nodeIndex": "Facts Table",
+          "nodeLineageTag": "78841bd1-a555-4da2-b101-26feb904027d",
           "size": {
-            "height": 300,
+            "height": 296,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 1136,
-            "y": 0
+            "x": 578.90567175687829,
+            "y": 416.38931360732289
           },
-          "nodeIndex": "One Kattameya Compound",
+          "nodeIndex": "Date_Dim",
+          "nodeLineageTag": "fbe42d53-021a-4b51-84ce-a9279da9db89",
           "size": {
-            "height": 300,
+            "height": 104,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 1420,
-            "y": 0
+            "x": 1159.5242607183075,
+            "y": 5.6786690858943558
           },
-          "nodeIndex": "Rihana",
+          "nodeIndex": "Calander",
           "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 1704,
-            "y": 0
-          },
-          "nodeIndex": "Skyline Katamya Compound",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 1988,
-            "y": 0
-          },
-          "nodeIndex": "Zahra North Coast",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 2272,
-            "y": 74
-          },
-          "nodeIndex": "Morshedy Projects",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 2556,
-            "y": 0
-          },
-          "nodeIndex": "All Projects",
-          "nodeLineageTag": "73427e97-f7a7-4b7c-9e43-60a9604740c9",
-          "size": {
-            "height": 300,
+            "height": 200,
             "width": 234
           },
           "zIndex": 0
         }
       ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 70.95554390096882,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

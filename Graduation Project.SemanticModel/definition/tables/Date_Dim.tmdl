@@ -1,0 +1,49 @@
+table Date_Dim
+	lineageTag: fbe42d53-021a-4b51-84ce-a9279da9db89
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 33bd5132-c73d-4218-b3d2-0f94e13865a9
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: cbd4b7d6-687a-4fca-a9f6-cc3cc2a88ab1
+			defaultHierarchy: LocalDateTable_c175f9fe-2568-470b-a8b0-4938328e42a9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Date_Dim = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"Crystal Plaza Maadi Compound", #"Degla Landmark", #"Degla Palms 6 October Compound", #"Lake Front 6", #"One Kattameya Compound", Rihana, #"Skyline Katamya Compound", #"Zahra North Coast"}),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"سعر الوحدة", Currency.Type}, {"نسبة الانجاز من الاستشاري الهندسي", Percentage.Type}, {"مجموع الدفعات المستحقة", Currency.Type}, {"مجموع الدفعات المدفوعة", Currency.Type}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Changed Type", {{"تاريخ عقد البيع", type date}}, "en-GB"),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"POC", Percentage.Type}}),
+				    #"Unpivoted Columns" = Table.UnpivotOtherColumns(#"Changed Type1", {"اسم العميل", "رقم الهوية", "رقم الوحدة", "كود الوحدة", "سعر الوحدة", "نسبة الانجاز من الاستشاري الهندسي", "جدول الدفعات", "مجموع الدفعات المستحقة", "مجموع الدفعات المدفوعة", "البنك", "تاريخ عقد البيع", "POC", "رقم عقد البيع", "Date", "Project Name"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Columns",{{"Attribute", "Installment Name"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Installment status ", each if Text.Contains(Text.From([Value]), "تم السداد") then "تم السداد"
+				else if Text.Trim(Text.From([Value])) = "غير مستحقة" then " غير مستحقة"
+				else "مستحقة"),
+				    #"Replaced Value" = Table.ReplaceValue(#"Added Custom","تم السداد","",Replacer.ReplaceText,{"Value"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","غير مستحقة","0",Replacer.ReplaceText,{"Value"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Replaced Value1",{{"Value", Currency.Type}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type2",{{"اسم العميل", "Customer Name"}, {"رقم الهوية", "Customer ID"}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns1",{{"Customer ID", type text}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Changed Type3",{{"رقم الوحدة", "Unit No"}, {"كود الوحدة", "Unit Code"}, {"سعر الوحدة", "Unit Price"}, {"نسبة الانجاز من الاستشاري الهندسي", "Completion Rate"}, {"جدول الدفعات", "Installments Table"}, {"مجموع الدفعات المستحقة", "Total Due"}, {"مجموع الدفعات المدفوعة", "Total Paid"}, {"البنك", "BanK"}, {"تاريخ عقد البيع", "Date of Contract Selling"}, {"رقم عقد البيع", "Contract No."}}),
+				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Renamed Columns2", {{"Date", type datetime}}, "en-GB"),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Changed Type with Locale1",{{"Date", type date}}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Changed Type4",{{"Value", "Installment Amount"}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns3",{"Date"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
