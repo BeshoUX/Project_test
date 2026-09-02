@@ -21,7 +21,7 @@ table 'Morshedy Projects'
 		dataType: int64
 		formatString: 0
 		lineageTag: 842e40a0-1673-436f-8fe3-6e7bd4e143a8
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Adopted Total Units
 
 		annotation SummarizationSetBy = Automatic
@@ -30,7 +30,7 @@ table 'Morshedy Projects'
 		mode: import
 		source =
 				let
-				  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Morshedy_8_Projects_Advertised_Total_Units.xlsx - Morshedy Projects.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  Source = Csv.Document(File.Contents("G:\Test\Morshedy_8_Projects_Advertised_Total_Units.xlsx - Morshedy Projects.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				  #"Changed column type" = Table.TransformColumnTypes(Source, {{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}),
 				    #"Removed Top Rows" = Table.Skip(#"Changed column type",3),
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),

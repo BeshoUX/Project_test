@@ -23,3 +23,7 @@ relationship 2307fb99-60a0-d16e-a76a-fbc6b76153d5
 	fromColumn: 'Facts Table'.Date
 	toColumn: Calander.Date
 
+relationship 19dc5c7b-ea2e-1579-86e6-876528f98844
+	fromColumn: 'Facts Table'.'Project Name'
+	toColumn: 'Morshedy Projects'.'Project Name'
+
