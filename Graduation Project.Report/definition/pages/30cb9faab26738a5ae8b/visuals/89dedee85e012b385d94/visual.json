@@ -11,6 +11,79 @@
   },
   "visual": {
     "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer_Dim"
+                    }
+                  },
+                  "Property": "BanK"
+                }
+              },
+              "queryRef": "Customer_Dim.BanK",
+              "nativeQueryRef": "BanK",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer_Dim"
+                    }
+                  },
+                  "Property": "Completion Rate"
+                }
+              },
+              "queryRef": "Customer_Dim.Completion Rate",
+              "nativeQueryRef": "Completion Rate"
+            }
+          ]
+        }
+      }
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "10c62490a9a7bb758e1b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Customer_Dim"
+              }
+            },
+            "Property": "BanK"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cafde3c688a441ca64c4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Customer_Dim"
+              }
+            },
+            "Property": "Completion Rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
