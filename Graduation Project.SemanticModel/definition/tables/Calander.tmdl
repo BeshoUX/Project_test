@@ -1,17 +1,14 @@
 table Calander
 	lineageTag: 0d49a719-5f3f-4d0f-be73-e989eaaebe97
+	dataCategory: Time
 
 	column Date
+		isKey
 		formatString: General Date
 		lineageTag: 0259f40a-a9d9-47dd-bc07-9502d06e9b51
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Date]
-
-		variation Variation
-			isDefault
-			relationship: a9552a00-02ea-4b06-82bd-f39d69c6b416
-			defaultHierarchy: LocalDateTable_782701e6-7662-473c-9176-ffdbab920d31.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 

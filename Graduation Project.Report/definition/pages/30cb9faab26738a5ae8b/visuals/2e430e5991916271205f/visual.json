@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2e430e5991916271205f",
+  "position": {
+    "x": 45.714285714285715,
+    "y": 12.857142857142858,
+    "z": 2,
+    "height": 705.511811023622,
+    "width": 1264.8818897637796,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts Table"
+                    }
+                  },
+                  "Property": "Project Name"
+                }
+              },
+              "queryRef": "Facts Table.Project Name",
+              "nativeQueryRef": "Project Name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Invoiced Amount"
+                }
+              },
+              "queryRef": "Table.Invoiced Amount",
+              "nativeQueryRef": "Invoiced Amount"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c3119c8d02d15b2a5b9b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facts Table"
+              }
+            },
+            "Property": "Project Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cef5768bd9d5fbb7232e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Invoiced Amount"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -21,7 +21,7 @@ table 'Morshedy Projects'
 		dataType: int64
 		formatString: 0
 		lineageTag: 842e40a0-1673-436f-8fe3-6e7bd4e143a8
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Adopted Total Units
 
 		annotation SummarizationSetBy = Automatic

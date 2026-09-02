@@ -1,6 +1,6 @@
 expression 'Crystal Plaza Maadi Compound' =
 		let
-		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Crystal Plaza Maadi Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Degla Landmark.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Crystal Plaza Maadi Compound"),
@@ -165,6 +165,30 @@ expression 'All Projects (2)' =
 		in
 		    #"Renamed Columns3"
 	lineageTag: 36869f7d-66f8-49a7-863b-d7af643d745f
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in Facts Table' =
+		let
+		Source = #"Facts Table",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Customer ID", "Total Due", "Total Paid", "Date of Contract Selling", "Date", "Project Name", "Installment Name", "Installment Amount", "Installment status "}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Customer ID", "Total Due", "Total Paid", "Date of Contract Selling", "Date", "Project Name", "Installment Name", "Installment Amount", "Installment status "}),
+		    #"Sorted Rows" = Table.Sort(#"Reordered Columns",{{"Project Name", Order.Ascending}})
+		in
+		  #"Sorted Rows"
+	lineageTag: 17f2ef50-2fd3-4c30-8e21-ae9ff5483892
+	queryGroup: 'Query Errors - 9/2/2026 1:56:46 PM'
 
 	annotation PBI_NavigationStepName = Navigation
 
