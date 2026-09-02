@@ -1,52 +1,47 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "89dedee85e012b385d94",
+  "name": "2e430e5991916271205f",
   "position": {
-    "x": 697.95275590551182,
-    "y": 239.37007874015748,
+    "x": 45.714285714285715,
+    "y": 12.857142857142858,
     "z": 2,
-    "height": 522,
-    "width": 955,
+    "height": 705.511811023622,
+    "width": 1264.8818897637796,
     "tabOrder": 2
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Customer_Dim"
+                      "Entity": "Facts Table"
                     }
                   },
-                  "Property": "BanK"
+                  "Property": "Project Name"
                 }
               },
-              "queryRef": "Customer_Dim.BanK",
-              "nativeQueryRef": "BanK",
-              "active": true
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
+              "queryRef": "Facts Table.Project Name",
+              "nativeQueryRef": "Project Name"
+            },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Customer_Dim"
+                      "Entity": "Measures1"
                     }
                   },
-                  "Property": "Completion Rate"
+                  "Property": "Invoiced Amount"
                 }
               },
-              "queryRef": "Customer_Dim.Completion Rate",
-              "nativeQueryRef": "Completion Rate"
+              "queryRef": "Table.Invoiced Amount",
+              "nativeQueryRef": "Invoiced Amount"
             }
           ]
         }
@@ -57,29 +52,29 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "10c62490a9a7bb758e1b",
+        "name": "c3119c8d02d15b2a5b9b",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Customer_Dim"
+                "Entity": "Facts Table"
               }
             },
-            "Property": "BanK"
+            "Property": "Project Name"
           }
         },
         "type": "Categorical"
       },
       {
-        "name": "cafde3c688a441ca64c4",
+        "name": "cef5768bd9d5fbb7232e",
         "field": {
-          "Column": {
+          "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Customer_Dim"
+                "Entity": "Measures1"
               }
             },
-            "Property": "Completion Rate"
+            "Property": "Invoiced Amount"
           }
         },
         "type": "Advanced"

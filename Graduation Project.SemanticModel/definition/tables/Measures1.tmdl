@@ -1,0 +1,27 @@
+table Measures1
+	lineageTag: e99144ff-595b-4373-a515-472e4d212a8e
+
+	measure 'Invoiced Amount' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"غير مستحقة","مستحقة"})
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bc6f695f-9611-4e95-b8a4-eed659a189bc
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 9d703a5c-10bb-495c-8ca8-b33f93d3e2a7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measures1 = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 6627ef13588a45589d2381646ab88baa
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
