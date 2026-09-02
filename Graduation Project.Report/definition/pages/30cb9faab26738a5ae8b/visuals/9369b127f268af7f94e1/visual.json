@@ -1,0 +1,311 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9369b127f268af7f94e1",
+  "position": {
+    "x": 24.285714285714288,
+    "y": 0,
+    "z": 0,
+    "height": 335.71428571428572,
+    "width": 1184.2857142857144,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer_Dim"
+                    }
+                  },
+                  "Property": "Project Name"
+                }
+              },
+              "queryRef": "Customer_Dim.Project Name",
+              "nativeQueryRef": "Project Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Morshedy Projects"
+                    }
+                  },
+                  "Property": "Adopted Total Units"
+                }
+              },
+              "queryRef": "Sum(Morshedy Projects.Adopted Total Units)",
+              "nativeQueryRef": "Adopted Total Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Total Sold"
+                }
+              },
+              "queryRef": "Measures1.Total Sold",
+              "nativeQueryRef": "Total Sold"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Sold %"
+                }
+              },
+              "queryRef": "Measures1.Sold %",
+              "nativeQueryRef": "Sold %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Unit Price"
+                }
+              },
+              "queryRef": "Measures1.Unit Price",
+              "nativeQueryRef": "Unit Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Invoiced Amounts"
+                }
+              },
+              "queryRef": "Measures1.Invoiced Amounts",
+              "nativeQueryRef": "Invoiced Amounts"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Collected Amount"
+                }
+              },
+              "queryRef": "Measures1.Collected Amount",
+              "nativeQueryRef": "Collected Amount"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Cash Outstanding"
+                }
+              },
+              "queryRef": "Measures1.Cash Outstanding",
+              "nativeQueryRef": "Cash Outstanding"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Bank Outstanding"
+                }
+              },
+              "queryRef": "Measures1.Bank Outstanding",
+              "nativeQueryRef": "Bank Outstanding"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Outstanding Balance"
+                }
+              },
+              "queryRef": "Measures1.Outstanding Balance",
+              "nativeQueryRef": "Outstanding Balance"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Morshedy Projects"
+                  }
+                },
+                "Property": "Adopted Total Units"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e7cef9a4c8cc0133e407",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Invoiced Amounts"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eafdd93cd412dc3dc40b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Customer_Dim"
+              }
+            },
+            "Property": "Project Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "90baf89500e9d133f203",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Collected Amount"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "578601e60bb6a40c9a23",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Unit Price"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "96cb8d09a2c6e5e0c3ce",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Total Sold"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d05df3c4b25d6ff4a700",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Morshedy Projects"
+              }
+            },
+            "Property": "Adopted Total Units"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8be29db966c1cf2cfe73",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Sold %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "649a0c3d94d0f235de78",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Cash Outstanding"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "00e319772624d32fac1a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Bank Outstanding"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

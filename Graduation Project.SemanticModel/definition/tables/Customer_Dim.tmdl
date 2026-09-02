@@ -37,7 +37,7 @@ table Customer_Dim
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: fb51458c-f9fa-4108-ad50-d2fa51e03d8a
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Unit Price
 
 		annotation SummarizationSetBy = Automatic
@@ -47,7 +47,7 @@ table Customer_Dim
 	column 'Completion Rate'
 		dataType: double
 		lineageTag: 1a945eb4-7b46-4e9c-9ad6-87c616e9942a
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Completion Rate
 
 		annotation SummarizationSetBy = Automatic
@@ -73,7 +73,7 @@ table Customer_Dim
 	column POC
 		dataType: double
 		lineageTag: f2cba218-045e-4d40-a84d-5f1bfe65f7c8
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: POC
 
 		annotation SummarizationSetBy = Automatic

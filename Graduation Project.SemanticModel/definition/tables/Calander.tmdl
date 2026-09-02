@@ -1,19 +1,58 @@
 table Calander
 	lineageTag: 0d49a719-5f3f-4d0f-be73-e989eaaebe97
+	dataCategory: Time
 
 	column Date
-		formatString: General Date
+		isKey
+		formatString: dd/mm/yyyy
 		lineageTag: 0259f40a-a9d9-47dd-bc07-9502d06e9b51
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Date]
 
-		variation Variation
-			isDefault
-			relationship: a9552a00-02ea-4b06-82bd-f39d69c6b416
-			defaultHierarchy: LocalDateTable_782701e6-7662-473c-9176-ffdbab920d31.'Date Hierarchy'
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Year = Year('Calander'[Date])
+		formatString: 0
+		lineageTag: d1d941e5-6d92-4af8-b0fe-55412cb98f11
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT('Calander'[Date],"MMMM")
+		lineageTag: 4fefce93-e33d-4c00-926a-0cd43dec929f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day = FORMAT(Calander[Date],"DDDD")
+		lineageTag: 9ef0efca-61db-4020-86a7-b75a1cdf259f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Date Hierarchy'
+		lineageTag: 0ad6851b-1dbf-4725-a489-41defbeec5f6
+
+		level Date
+			lineageTag: e257b231-66b2-4149-a0da-d51d62bf4293
+			column: Date
+
+		level Month
+			lineageTag: 1e0e2826-5b6b-49c4-acb1-70709f09e750
+			column: Month
+
+		level Year
+			lineageTag: 435ae1f3-e87b-4d4f-9a75-3080c7714c5c
+			column: Year
+
+		level Day
+			lineageTag: 338c474e-560c-4f4b-b23e-7b37ba5dd817
+			column: Day
 
 	partition Calander = calculated
 		mode: import

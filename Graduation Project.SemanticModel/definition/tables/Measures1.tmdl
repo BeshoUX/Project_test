@@ -1,0 +1,168 @@
+table Measures1
+	lineageTag: ddfeed7b-5ef5-47d2-8a99-f87968990836
+
+	measure 'Total Sold' = COUNT(Customer_Dim[Unit No])
+		formatString: #,0
+		lineageTag: ec08025c-69c4-4fa3-a69e-43848d904de0
+
+	measure 'Sold %' = COUNT(Customer_Dim[Unit No]) / COUNT('Morshedy Projects'[Adopted Total Units])
+		lineageTag: 790ce921-b08f-4cb9-8574-611351ed1365
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unit Price' = SUM(Customer_Dim[Unit Price])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2b1cd520-3854-4d64-b8dc-6cd236d1e674
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Invoiced Amounts' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"})
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 45e8ce79-f7a5-4d46-976d-611fe464a1a2
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Collected Amount' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 546e15d1-93cb-4141-8322-cb162ea6e232
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Cash Outstanding' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",'Customer_Dim'[BanK]= "كاش")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0519064b-a18a-49f2-89ba-2acffa8f3dc2
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Bank Outstanding' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ]="مستحقة",'Customer_Dim'[BanK] <> "كاش")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e94e1d47-b4fa-4454-8c32-773947ed0825
+
+	measure 'Outstanding Balance' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7e48ebcc-2395-4bca-b88c-3dc49df7cac2
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Collected OLD' = ```
+			VAR SelectedDate =
+			   MIN(Calander[Date])
+			RETURN 
+			    CALCULATE(
+			        [Collected Amount],
+			        FILTER(
+			            ALL(Calander),
+			            Calander[Date] <SelectedDate
+			        )
+			    )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6bedddfb-ef86-4ed5-982a-4780fa6e719a
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Collected New' = ```
+			VAR SelectedMinDate =
+			   MIN(Calander[Date])
+			   var selectedMaxDate = 
+			   MAX(Calander[Date])
+			RETURN 
+			    CALCULATE(
+			        [Collected Amount],
+			        FILTER(
+			            ALL(Calander),
+			            AND(Calander[Date] >= SelectedMinDate,Calander[Date] <= selectedMaxDate)
+			        )
+			    )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c8e6aa35-0e58-48df-aa94-c783f28ebcde
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Outstanding OLD' = ```
+			VAR SelectedDate =
+			   MIN(Calander[Date])
+			RETURN 
+			    CALCULATE(
+			        [Outstanding Balance],
+			        FILTER(
+			            ALL(Calander),
+			            Calander[Date] <SelectedDate
+			        )
+			    )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: febf9a9c-2c60-49a4-a9dd-c1cf9e2f5eb9
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Outstanding New' = ```
+			VAR SelectedMinDate =
+			   MIN(Calander[Date])
+			   var selectedMaxDate = 
+			   MAX(Calander[Date])
+			RETURN 
+			    CALCULATE(
+			        [Outstanding Balance],
+			        FILTER(
+			            ALL(Calander),
+			            AND(Calander[Date] >= SelectedMinDate,Calander[Date] <= selectedMaxDate)
+			        )
+			    )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ffaac713-3e9d-4381-91e1-3f7bbe8578f4
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'OLD Rows' = ```
+			VAR SelectedDate =
+			   MIN(Calander[Date])
+			RETURN 
+			    CALCULATE(
+			        COUNT(Customer_Dim[Customer ID]),
+			        FILTER(
+			            ALL(Calander),
+			            Calander[Date] <SelectedDate
+			        )
+			    )
+			```
+		formatString: 0
+		lineageTag: e1ecbf69-da30-4dd0-8536-de3118cee8c8
+
+	measure 'NEW Rows' = ```
+			VAR SelectedMinDate =
+			   MIN(Calander[Date])
+			   var selectedMaxDate = 
+			   MAX(Calander[Date])
+			RETURN 
+			    CALCULATE(
+			        COUNT(Customer_Dim[Customer ID]),
+			        FILTER(
+			            ALL(Calander),
+			            AND(Calander[Date] >= SelectedMinDate,Calander[Date] <= selectedMaxDate)
+			        )
+			    )
+			```
+		formatString: 0
+		lineageTag: 8b79f335-377e-4576-aa23-ef973ff8dd2c
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: b9856f9e-fa44-41f6-a43e-eab30bfb0d1d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measures1 = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 1207d7bda1044e24970e9b919a9d235a
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

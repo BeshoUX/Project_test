@@ -1,0 +1,168 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "3e4f1c8b4c3960b21d8f",
+  "position": {
+    "x": 24,
+    "y": 540,
+    "z": 3,
+    "height": 308,
+    "width": 1184,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer_Dim"
+                    }
+                  },
+                  "Property": "Project Name"
+                }
+              },
+              "queryRef": "Customer_Dim.Project Name",
+              "nativeQueryRef": "Project Name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Collected OLD"
+                }
+              },
+              "queryRef": "Measures1.Collected OLD",
+              "nativeQueryRef": "Collected OLD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Collected New"
+                }
+              },
+              "queryRef": "Measures1.Collected New",
+              "nativeQueryRef": "Collected New"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Outstanding OLD"
+                }
+              },
+              "queryRef": "Measures1.Outstanding OLD",
+              "nativeQueryRef": "Outstanding OLD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "Outstanding New"
+                }
+              },
+              "queryRef": "Measures1.Outstanding New",
+              "nativeQueryRef": "Outstanding New"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "OLD Rows"
+                }
+              },
+              "queryRef": "Measures1.OLD Rows",
+              "nativeQueryRef": "OLD Rows"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures1"
+                    }
+                  },
+                  "Property": "NEW Rows"
+                }
+              },
+              "queryRef": "Measures1.NEW Rows",
+              "nativeQueryRef": "NEW Rows"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4c8ef5c96745690db05d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Collected OLD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5080203cafa17596c47e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Customer_Dim"
+              }
+            },
+            "Property": "Project Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b95389b1dd31e1e5f474",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures1"
+              }
+            },
+            "Property": "Collected New"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -7,9 +7,14 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
+/// Errors in queries that were loaded on 9/2/2026 5:05:15 PM.
+queryGroup 'Query Errors - 9/2/2026 5:05:15 PM'
+
+	annotation PBI_QueryGroupOrder = 0
+
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Crystal Plaza Maadi Compound","Degla Landmark","Degla Palms 6 October Compound","Lake Front 6","One Kattameya Compound","Rihana","Skyline Katamya Compound","Zahra North Coast","Morshedy Projects","All Projects","All Projects (2)","Customer_Dim","Date_Dim","Facts Table"]
+annotation PBI_QueryOrder = ["Crystal Plaza Maadi Compound","Degla Landmark","Degla Palms 6 October Compound","Lake Front 6","One Kattameya Compound","Rihana","Skyline Katamya Compound","Zahra North Coast","Morshedy Projects","All Projects","All Projects (2)","Customer_Dim","Date_Dim","Facts Table","Errors in Facts Table"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -21,8 +26,7 @@ ref table LocalDateTable_def3e99b-0cb2-430c-8f5e-35d4a4576399
 ref table Date_Dim
 ref table LocalDateTable_c175f9fe-2568-470b-a8b0-4938328e42a9
 ref table Calander
-ref table LocalDateTable_782701e6-7662-473c-9176-ffdbab920d31
-ref table 'Unit Price'
+ref table Measures1
 
 ref cultureInfo en-US
 
