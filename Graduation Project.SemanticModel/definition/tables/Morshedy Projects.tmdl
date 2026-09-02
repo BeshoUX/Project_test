@@ -30,13 +30,14 @@ table 'Morshedy Projects'
 		mode: import
 		source =
 				let
-				  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Morshedy_8_Projects_Advertised_Total_Units.xlsx - Morshedy Projects.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				  Source = Csv.Document(File.Contents("G:\Test\Morshedy_8_Projects_Advertised_Total_Units.xlsx - Morshedy Projects.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				  #"Changed column type" = Table.TransformColumnTypes(Source, {{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}),
 				    #"Removed Top Rows" = Table.Skip(#"Changed column type",3),
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Project Name", type text}, {"الاسم بالعربي", type text}, {"Adopted Total Units", Int64.Type}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Project Name", type text}, {"الاسم بالعربي", type text}, {"Adopted Total Units", Int64.Type}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","Rihana / Rayhanna Avenue","Rihana",Replacer.ReplaceText,{"Project Name"})
 				in
-				  #"Changed Type"
+				    #"Replaced Value"
 
 	annotation PBI_ResultType = Table
 

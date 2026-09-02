@@ -88,6 +88,14 @@ table Customer_Dim
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Project Name'
+		dataType: string
+		lineageTag: 9a3b6e43-6637-40e8-b37c-e9af60f58a0c
+		summarizeBy: none
+		sourceColumn: Project Name
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Customer_Dim = m
 		mode: import
 		source =
@@ -110,9 +118,13 @@ table Customer_Dim
 				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Renamed Columns2", {{"Date", type datetime}}, "en-GB"),
 				    #"Changed Type4" = Table.TransformColumnTypes(#"Changed Type with Locale1",{{"Date", type date}}),
 				    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type4",{"Customer Name", "Customer ID", "Unit No", "Unit Code", "Unit Price", "Completion Rate", "Installments Table", "BanK", "POC", "Contract No."}),
-				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"Customer ID"})
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"Customer ID"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"Customer ID"}, #"All Projects (2)", {"Customer ID"}, "All Projects (2)", JoinKind.LeftOuter),
+				    #"Expanded All Projects (2)" = Table.ExpandTableColumn(#"Merged Queries", "All Projects (2)", {"Project Name"}, {"All Projects (2).Project Name"}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Expanded All Projects (2)",{{"All Projects (2).Project Name", "Project Name"}}),
+				    #"Removed Duplicates1" = Table.Distinct(#"Renamed Columns3", {"Customer ID"})
 				in
-				    #"Removed Duplicates"
+				    #"Removed Duplicates1"
 
 	annotation PBI_NavigationStepName = Navigation
 

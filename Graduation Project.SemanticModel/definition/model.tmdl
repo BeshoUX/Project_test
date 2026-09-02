@@ -22,6 +22,7 @@ ref table Date_Dim
 ref table LocalDateTable_c175f9fe-2568-470b-a8b0-4938328e42a9
 ref table Calander
 ref table LocalDateTable_782701e6-7662-473c-9176-ffdbab920d31
+ref table 'Unit Price'
 
 ref cultureInfo en-US
 

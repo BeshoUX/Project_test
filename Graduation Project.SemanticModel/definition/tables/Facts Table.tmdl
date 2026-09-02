@@ -58,14 +58,6 @@ table 'Facts Table'
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 'Project Name'
-		dataType: string
-		lineageTag: 8efb07c5-2c46-4f30-b9fc-e6be6d143dd1
-		summarizeBy: none
-		sourceColumn: Project Name
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Installment Name'
 		dataType: string
 		lineageTag: bcc49173-d9e3-462e-a4f0-6ac2ee4daa1a
@@ -115,7 +107,7 @@ table 'Facts Table'
 				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Renamed Columns2", {{"Date", type datetime}}, "en-GB"),
 				    #"Changed Type4" = Table.TransformColumnTypes(#"Changed Type with Locale1",{{"Date", type date}}),
 				    #"Renamed Columns3" = Table.RenameColumns(#"Changed Type4",{{"Value", "Installment Amount"}}),
-				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns3",{"Customer ID", "Total Due", "Total Paid", "Date of Contract Selling", "Date", "Project Name", "Installment Name", "Installment Amount", "Installment status "})
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns3",{"Customer ID", "Total Due", "Total Paid", "Date of Contract Selling", "Date", "Installment Name", "Installment Amount", "Installment status "})
 				in
 				    #"Removed Other Columns"
 

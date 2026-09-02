@@ -1,0 +1,36 @@
+table 'Unit Price'
+	lineageTag: ddfeed7b-5ef5-47d2-8a99-f87968990836
+
+	measure 'Total Sold' = COUNT(Customer_Dim[Unit No])
+		formatString: 0
+		lineageTag: ec08025c-69c4-4fa3-a69e-43848d904de0
+
+	measure 'Sold %' = COUNT(Customer_Dim[Unit No]) / COUNT('Morshedy Projects'[Adopted Total Units])
+		lineageTag: 790ce921-b08f-4cb9-8574-611351ed1365
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unit Price' = SUM(Customer_Dim[Unit Price])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2b1cd520-3854-4d64-b8dc-6cd236d1e674
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: b9856f9e-fa44-41f6-a43e-eab30bfb0d1d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Unit Price' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 1207d7bda1044e24970e9b919a9d235a
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

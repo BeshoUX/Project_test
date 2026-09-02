@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "fb538aa0741b355abedf",
+  "position": {
+    "x": 10.475448168355417,
+    "y": 0,
+    "z": 0,
+    "height": 540.23382696804367,
+    "width": 1105.9080280592361,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer_Dim"
+                    }
+                  },
+                  "Property": "Project Name"
+                }
+              },
+              "queryRef": "Customer_Dim.Project Name",
+              "nativeQueryRef": "Project Name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Unit Price"
+                    }
+                  },
+                  "Property": "Total Sold"
+                }
+              },
+              "queryRef": "Table.Total Sold",
+              "nativeQueryRef": "Total Sold"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Unit Price"
+                    }
+                  },
+                  "Property": "Sold %"
+                }
+              },
+              "queryRef": "Table.Sold %",
+              "nativeQueryRef": "Sold %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Unit Price"
+                    }
+                  },
+                  "Property": "Unit Price"
+                }
+              },
+              "queryRef": "Unit Price.Unit Price",
+              "nativeQueryRef": "Unit Price"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8de75cd191ec8aba10ef",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Unit Price"
+              }
+            },
+            "Property": "Sold %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "68fdad8cc828d32fac2d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Customer_Dim"
+              }
+            },
+            "Property": "Project Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b9d58ec31e7dd5cb6b10",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Unit Price"
+              }
+            },
+            "Property": "Total Sold"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8233005751e35637bafa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Unit Price"
+              }
+            },
+            "Property": "Unit Price"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
