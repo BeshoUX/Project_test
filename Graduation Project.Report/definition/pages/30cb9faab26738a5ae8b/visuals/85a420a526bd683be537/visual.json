@@ -40,7 +40,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Measures"
+                      "Entity": "One Kattameya Overall Measures"
                     }
                   },
                   "Property": "Issued Invoices One Kattameya"
@@ -54,7 +54,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Measures"
+                      "Entity": "One Kattameya Overall Measures"
                     }
                   },
                   "Property": "Collected Invoices One Kattameya"
@@ -68,7 +68,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Measures"
+                      "Entity": "One Kattameya Overall Measures"
                     }
                   },
                   "Property": "Collected Amount One Kattameya"
@@ -82,7 +82,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Measures"
+                      "Entity": "One Kattameya Overall Measures"
                     }
                   },
                   "Property": "Collection Rate One Kattameya"
@@ -96,7 +96,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Measures"
+                      "Entity": "One Kattameya Overall Measures"
                     }
                   },
                   "Property": "Outstanding Invoices One Kattameya"
@@ -110,7 +110,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Measures"
+                      "Entity": "One Kattameya Overall Measures"
                     }
                   },
                   "Property": "Outstanding Amount One Kattameya"
@@ -124,7 +124,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Measures"
+                      "Entity": "One Kattameya Overall Measures"
                     }
                   },
                   "Property": "Outstanding % One Kattameya"
@@ -138,7 +138,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Measures"
+                      "Entity": "One Kattameya Overall Measures"
                     }
                   },
                   "Property": "Invoiced Amounts One Kattameya"
@@ -249,7 +249,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "One Kattameya Measures"
+                "Entity": "One Kattameya Overall Measures"
               }
             },
             "Property": "Issued Invoices One Kattameya"
@@ -263,7 +263,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "One Kattameya Measures"
+                "Entity": "One Kattameya Overall Measures"
               }
             },
             "Property": "Collected Invoices One Kattameya"
@@ -277,7 +277,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "One Kattameya Measures"
+                "Entity": "One Kattameya Overall Measures"
               }
             },
             "Property": "Collected Amount One Kattameya"
@@ -291,7 +291,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "One Kattameya Measures"
+                "Entity": "One Kattameya Overall Measures"
               }
             },
             "Property": "Collection Rate One Kattameya"
@@ -305,7 +305,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "One Kattameya Measures"
+                "Entity": "One Kattameya Overall Measures"
               }
             },
             "Property": "Outstanding Invoices One Kattameya"
