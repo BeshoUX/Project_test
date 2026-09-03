@@ -30,6 +30,7 @@ ref table 'General Measures'
 ref table 'One Kattameya Overall Measures'
 ref table 'One Kattameya Bank Measures'
 ref table 'One Kattameya Cash Measures'
+ref table 'OK Bank-Wise Measures'
 
 ref cultureInfo en-US
 

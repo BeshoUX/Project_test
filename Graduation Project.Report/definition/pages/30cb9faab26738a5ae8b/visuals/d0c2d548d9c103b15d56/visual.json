@@ -11,6 +11,84 @@
   },
   "visual": {
     "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer_Dim"
+                    }
+                  },
+                  "Property": "BanK"
+                }
+              },
+              "queryRef": "Customer_Dim.BanK",
+              "nativeQueryRef": "BanK"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "OK Bank-Wise Measures"
+                    }
+                  },
+                  "Property": "Customer rows OK"
+                }
+              },
+              "queryRef": "OK Bank-Wise Measures.Customer rows OK",
+              "nativeQueryRef": "Customer rows OK"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "OK Bank-Wise Measures"
+                    }
+                  },
+                  "Property": "Unit Price OK"
+                }
+              },
+              "queryRef": "OK Bank-Wise Measures.Unit Price OK",
+              "nativeQueryRef": "Unit Price OK"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Overall Measures"
+                    }
+                  },
+                  "Property": "Collected Amount One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Overall Measures.Collected Amount One Kattameya",
+              "nativeQueryRef": "Collected Amount One Kattameya"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Overall Measures"
+                    }
+                  },
+                  "Property": "Outstanding Amount One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Overall Measures.Outstanding Amount One Kattameya",
+              "nativeQueryRef": "Outstanding Amount One Kattameya"
+            }
+          ]
+        }
+      }
+    },
     "drillFilterOtherVisuals": true
   }
 }

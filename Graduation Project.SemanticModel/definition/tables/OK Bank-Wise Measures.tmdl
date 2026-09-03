@@ -1,0 +1,30 @@
+table 'OK Bank-Wise Measures'
+	lineageTag: 8685dd4e-45fd-4c61-a401-81a7dd79103f
+
+	measure 'Customer rows OK' = CALCULATE(COUNT(Customer_Dim[Customer ID]),'Customer_Dim'[Project Name]="One Kattameya Compound")
+		formatString: 0
+		lineageTag: 961f6c5f-5695-4c4a-aebd-3f5e74f2c1c8
+
+	measure 'Unit Price OK' = CALCULATE(Sum(Customer_Dim[Unit Price]),'Customer_Dim'[Project Name]="One Kattameya Compound")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0ca742c4-5060-4287-aa95-00dfa26ce76e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		formatString: 0
+		lineageTag: 5211022f-e4a8-4dc9-873d-db8473d696da
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'OK Bank-Wise Measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = b295dd066985486f841a02c27a67b9d1
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
