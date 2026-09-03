@@ -27,13 +27,13 @@ table 'General Measures'
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Cash Outstanding' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",'Customer_Dim'[BanK]= "كاش")
+	measure 'Cash Outstanding' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",'Customer_Dim'[BanK]= "Cash")
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 0519064b-a18a-49f2-89ba-2acffa8f3dc2
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Bank Outstanding' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ]="مستحقة",'Customer_Dim'[BanK] <> "كاش")
+	measure 'Bank Outstanding' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ]="مستحقة",'Customer_Dim'[BanK] <> "Cash")
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: e94e1d47-b4fa-4454-8c32-773947ed0825
 

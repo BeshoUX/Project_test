@@ -122,9 +122,22 @@ table Customer_Dim
 				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"Customer ID"}, #"All Projects (2)", {"Customer ID"}, "All Projects (2)", JoinKind.LeftOuter),
 				    #"Expanded All Projects (2)" = Table.ExpandTableColumn(#"Merged Queries", "All Projects (2)", {"Project Name"}, {"All Projects (2).Project Name"}),
 				    #"Renamed Columns3" = Table.RenameColumns(#"Expanded All Projects (2)",{{"All Projects (2).Project Name", "Project Name"}}),
-				    #"Removed Duplicates1" = Table.Distinct(#"Renamed Columns3", {"Customer ID"})
+				    #"Removed Duplicates1" = Table.Distinct(#"Renamed Columns3", {"Customer ID"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Removed Duplicates1","البنك العربي الأفريقي الدولي","AAIB",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","EGBANK - البنك المصري الخليجي","EGBANK",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","QNB مصر","QNB Egypt",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","بنك الإسكندرية","AlexBank",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","بنك مصر","Banque Misr",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","بنك القاهرة","Banque du Caire",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","كريدي أجريكول مصر","Credit Agricole Egypt",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","بنك التعمير والإسكان","Housing & Development Bank",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","البنك الأهلي المصري","National Bank of Egypt",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","البنك التجاري الدولي CIB","CIB",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","البنك التجاري الدولي (CIB)","CIB",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Replaced Value12","إي جي بنك (EGBANK)","EGBANK",Replacer.ReplaceText,{"BanK"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","كاش","Cash",Replacer.ReplaceText,{"BanK"})
 				in
-				    #"Removed Duplicates1"
+				    #"Replaced Value14"
 
 	annotation PBI_NavigationStepName = Navigation
 

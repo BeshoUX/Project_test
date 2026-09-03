@@ -4,10 +4,10 @@
   "position": {
     "x": 26.666666666666668,
     "y": 521.66666666666674,
-    "z": 4,
+    "z": 2000,
     "height": 306.66666666666669,
     "width": 1075,
-    "tabOrder": 4
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -226,23 +226,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a0815a4d577b5931c289",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Facts Table"
-              }
-            },
-            "Property": "Installment Name"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

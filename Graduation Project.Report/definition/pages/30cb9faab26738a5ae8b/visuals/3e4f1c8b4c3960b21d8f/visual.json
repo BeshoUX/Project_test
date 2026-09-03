@@ -4,10 +4,10 @@
   "position": {
     "x": 24,
     "y": 278,
-    "z": 3,
+    "z": 1000,
     "height": 246,
     "width": 1184,
-    "tabOrder": 3
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -118,107 +118,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4c8ef5c96745690db05d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "General Measures"
-              }
-            },
-            "Property": "Collected OLD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5080203cafa17596c47e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Customer_Dim"
-              }
-            },
-            "Property": "Project Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b95389b1dd31e1e5f474",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "General Measures"
-              }
-            },
-            "Property": "Collected New"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "27d6f28f29c453f5e6c2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "General Measures"
-              }
-            },
-            "Property": "Outstanding OLD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b516a1d11b768ed025e8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "General Measures"
-              }
-            },
-            "Property": "Outstanding New"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "aeb2cac34eb9c410244c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "General Measures"
-              }
-            },
-            "Property": "OLD Rows"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "dbe8fa846eff40c6e8dc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "General Measures"
-              }
-            },
-            "Property": "NEW Rows"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

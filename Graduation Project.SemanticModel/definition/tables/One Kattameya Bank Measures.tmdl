@@ -1,41 +1,41 @@
 table 'One Kattameya Bank Measures'
 	lineageTag: d222db4f-9532-4fe8-9e7f-510a2f63d904
 
-	measure 'Collected Amount OK Bank' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "كاش")
+	measure 'Collected Amount OK Bank' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "Cash")
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: da438d45-07d2-42e8-b132-f2b50a3c866b
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Collected Invoices OK Bank' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "كاش")
+	measure 'Collected Invoices OK Bank' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "Cash")
 		formatString: 0
 		lineageTag: d464fcb8-0c05-4d95-944e-d6d04dfbf5a2
 
-	measure 'Collection Rate OK Bank' = CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound", Customer_Dim[BanK] <> "كاش")
+	measure 'Collection Rate OK Bank' = CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound", Customer_Dim[BanK] <> "Cash")
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: ca83db92-0c6d-46a6-a142-71a61205c746
 
-	measure 'Invoiced Amounts OK Bank' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "One Kattameya Compound",Customer_Dim[BanK] <> "كاش")
+	measure 'Invoiced Amounts OK Bank' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "One Kattameya Compound",Customer_Dim[BanK] <> "Cash")
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: fc3d7ff3-b371-485b-a332-8908ebcd32b5
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Issued Invoices OK Bank' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "One Kattameya Compound",Customer_Dim[BanK] <> "كاش")
+	measure 'Issued Invoices OK Bank' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "One Kattameya Compound",Customer_Dim[BanK] <> "Cash")
 		formatString: 0
 		lineageTag: b4698fad-7032-4431-8f62-aa4ffe7d5d2f
 
-	measure 'Outstanding % OK Bank' = CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "كاش")
+	measure 'Outstanding % OK Bank' = CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "Cash")
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 2f75c4a9-34a7-42f0-a433-0a8d07ff0ad7
 
-	measure 'Outstanding Amount OK Bank' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "كاش")
+	measure 'Outstanding Amount OK Bank' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "Cash")
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: f4592fd0-d1cd-4ff7-879b-373afe61668e
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Outstanding Invoices OK Bank' = CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "كاش")
+	measure 'Outstanding Invoices OK Bank' = CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] <> "Cash")
 		formatString: 0
 		lineageTag: 174c054c-2715-461d-af57-b78a9c26ebd1
 
