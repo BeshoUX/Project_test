@@ -3,9 +3,9 @@
   "name": "3e4f1c8b4c3960b21d8f",
   "position": {
     "x": 24,
-    "y": 540,
+    "y": 278,
     "z": 3,
-    "height": 308,
+    "height": 246,
     "width": 1184,
     "tabOrder": 3
   },
@@ -34,7 +34,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Collected OLD"
@@ -48,7 +48,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Collected New"
@@ -62,7 +62,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Outstanding OLD"
@@ -76,7 +76,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Outstanding New"
@@ -90,7 +90,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "OLD Rows"
@@ -104,7 +104,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "NEW Rows"
@@ -127,7 +127,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Collected OLD"
@@ -155,10 +155,66 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Collected New"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "27d6f28f29c453f5e6c2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "General Measures"
+              }
+            },
+            "Property": "Outstanding OLD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b516a1d11b768ed025e8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "General Measures"
+              }
+            },
+            "Property": "Outstanding New"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "aeb2cac34eb9c410244c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "General Measures"
+              }
+            },
+            "Property": "OLD Rows"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dbe8fa846eff40c6e8dc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "General Measures"
+              }
+            },
+            "Property": "NEW Rows"
           }
         },
         "type": "Advanced"

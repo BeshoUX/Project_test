@@ -1,0 +1,60 @@
+table 'One Kattameya Measures'
+	lineageTag: 23998166-eef2-40c5-9de1-14b8a2242829
+
+	measure 'Issued Invoices One Kattameya' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "One Kattameya Compound")
+		formatString: 0
+		lineageTag: 5b2975d4-c33c-4103-b189-a941a1717de7
+
+	measure 'Collected Invoices One Kattameya' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="One Kattameya Compound")
+		formatString: 0
+		lineageTag: a5a54478-488d-4648-8b16-e5713340f3e8
+
+	measure 'Collected Amount One Kattameya' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="One Kattameya Compound")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 484de023-ef0c-496b-908d-f0c89f39bd68
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Collection Rate One Kattameya' = CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a295bcd6-5546-4c5c-b11e-6413d141312c
+
+	measure 'Outstanding Invoices One Kattameya' = CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="One Kattameya Compound")
+		formatString: 0
+		lineageTag: fa63ab39-2a90-4c29-a3f6-97e7a781ec98
+
+	measure 'Outstanding Amount One Kattameya' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="One Kattameya Compound")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5a441c6d-b712-4739-adbc-4651b631d953
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Outstanding % One Kattameya' = CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound")
+		lineageTag: 6fa557e9-f71a-43f0-b0af-5af5ebe6ad5a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Invoiced Amounts One Kattameya' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "One Kattameya Compound")
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9c18cf69-8318-43ad-baff-e6e98afefc20
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 55df2e96-b614-44db-9325-647b846b4b76
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'One Kattameya Measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 7c2c37490dcf481e8188b59ea9df811d
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

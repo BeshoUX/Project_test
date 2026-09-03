@@ -1,14 +1,13 @@
-table Measures1
+table 'General Measures'
 	lineageTag: ddfeed7b-5ef5-47d2-8a99-f87968990836
 
 	measure 'Total Sold' = COUNT(Customer_Dim[Unit No])
 		formatString: #,0
 		lineageTag: ec08025c-69c4-4fa3-a69e-43848d904de0
 
-	measure 'Sold %' = COUNT(Customer_Dim[Unit No]) / COUNT('Morshedy Projects'[Adopted Total Units])
+	measure 'Sold %' = [Total Sold] / SUM('Morshedy Projects'[Adopted Total Units])
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 790ce921-b08f-4cb9-8574-611351ed1365
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Unit Price' = SUM(Customer_Dim[Unit Price])
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
@@ -148,6 +147,26 @@ table Measures1
 		formatString: 0
 		lineageTag: 8b79f335-377e-4576-aa23-ef973ff8dd2c
 
+	measure 'Issued Invoices' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"تم السداد","مستحقة"})
+		formatString: 0
+		lineageTag: c5805610-62c5-4503-b708-45160b14f005
+
+	measure 'Collected Invoices' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد")
+		formatString: 0
+		lineageTag: 6bd7bcfb-c482-404f-9f7c-2fd9c66c45b8
+
+	measure 'Collection Rate' = [Collected Invoices] / [Issued Invoices]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 55718409-d713-4648-b2ee-4cabdb5430d0
+
+	measure 'Outstanding Invoices' = [Issued Invoices] - [Collected Invoices]
+		formatString: #,0
+		lineageTag: a931bb5e-cb06-4dfd-a499-17727ee83da2
+
+	measure 'Outstanding %' = [Outstanding Invoices]/[Issued Invoices]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 82766095-04f2-4dba-8c40-aea5eedb2d9d
+
 	column Column
 		isHidden
 		formatString: 0
@@ -158,7 +177,7 @@ table Measures1
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Measures1 = calculated
+	partition 'General Measures' = calculated
 		mode: import
 		source = Row("Column", BLANK())
 

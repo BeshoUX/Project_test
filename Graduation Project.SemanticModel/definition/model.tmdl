@@ -26,7 +26,8 @@ ref table LocalDateTable_def3e99b-0cb2-430c-8f5e-35d4a4576399
 ref table Date_Dim
 ref table LocalDateTable_c175f9fe-2568-470b-a8b0-4938328e42a9
 ref table Calander
-ref table Measures1
+ref table 'General Measures'
+ref table 'One Kattameya Measures'
 
 ref cultureInfo en-US
 

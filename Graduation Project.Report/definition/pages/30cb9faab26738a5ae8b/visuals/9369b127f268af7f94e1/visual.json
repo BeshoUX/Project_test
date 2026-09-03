@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "9369b127f268af7f94e1",
   "position": {
-    "x": 24.285714285714288,
+    "x": 24,
     "y": 0,
     "z": 0,
-    "height": 335.71428571428572,
-    "width": 1184.2857142857144,
+    "height": 278,
+    "width": 1184,
     "tabOrder": 0
   },
   "visual": {
@@ -48,7 +48,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Total Sold"
@@ -62,7 +62,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Sold %"
@@ -76,7 +76,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Unit Price"
@@ -90,7 +90,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Invoiced Amounts"
@@ -104,7 +104,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Collected Amount"
@@ -118,7 +118,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Cash Outstanding"
@@ -132,7 +132,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Bank Outstanding"
@@ -146,7 +146,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures1"
+                      "Entity": "General Measures"
                     }
                   },
                   "Property": "Outstanding Balance"
@@ -162,13 +162,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Morshedy Projects"
+                    "Entity": "General Measures"
                   }
                 },
-                "Property": "Adopted Total Units"
+                "Property": "Sold %"
               }
             },
             "direction": "Ascending"
@@ -186,7 +186,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Invoiced Amounts"
@@ -214,7 +214,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Collected Amount"
@@ -228,7 +228,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Unit Price"
@@ -242,7 +242,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Total Sold"
@@ -270,7 +270,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Sold %"
@@ -284,7 +284,7 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Cash Outstanding"
@@ -298,10 +298,24 @@
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Measures1"
+                "Entity": "General Measures"
               }
             },
             "Property": "Bank Outstanding"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "401036ab2acabfa152a1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "General Measures"
+              }
+            },
+            "Property": "Outstanding Balance"
           }
         },
         "type": "Advanced"

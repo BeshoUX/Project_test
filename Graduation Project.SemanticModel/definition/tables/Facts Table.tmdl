@@ -107,9 +107,18 @@ table 'Facts Table'
 				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Renamed Columns2", {{"Date", type datetime}}, "en-GB"),
 				    #"Changed Type4" = Table.TransformColumnTypes(#"Changed Type with Locale1",{{"Date", type date}}),
 				    #"Renamed Columns3" = Table.RenameColumns(#"Changed Type4",{{"Value", "Installment Amount"}}),
-				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns3",{"Customer ID", "Total Due", "Total Paid", "Date of Contract Selling", "Date", "Installment Name", "Installment Amount", "Installment status "})
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns3",{"Customer ID", "Total Due", "Total Paid", "Date of Contract Selling", "Date", "Installment Name", "Installment Amount", "Installment status "}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Removed Other Columns","الدفعة 1","P1",Replacer.ReplaceText,{"Installment Name"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","الدفعة 2","P2",Replacer.ReplaceText,{"Installment Name"}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Replaced Value3","الدفعة3","P3",Replacer.ReplaceText,{"Installment Name"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","الدفعة 4","P4",Replacer.ReplaceText,{"Installment Name"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","الدفعة 5","P5",Replacer.ReplaceText,{"Installment Name"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","الدفعة 6","P6",Replacer.ReplaceText,{"Installment Name"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","الدفعة 7","P7",Replacer.ReplaceText,{"Installment Name"}),
+				    #"Trimmed Text" = Table.TransformColumns(Table.TransformColumnTypes(#"Replaced Value8", {{"Installment Amount", type text}}, "en-US"),{{"Installment Amount", Text.Trim, type text}}),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Trimmed Text",{{"Installment Amount", Currency.Type}})
 				in
-				    #"Removed Other Columns"
+				    #"Changed Type5"
 
 	annotation PBI_NavigationStepName = Navigation
 

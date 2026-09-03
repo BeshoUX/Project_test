@@ -1,0 +1,318 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "85a420a526bd683be537",
+  "position": {
+    "x": 26.666666666666668,
+    "y": 521.66666666666674,
+    "z": 4,
+    "height": 306.66666666666669,
+    "width": 1075,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts Table"
+                    }
+                  },
+                  "Property": "Installment Name"
+                }
+              },
+              "queryRef": "Facts Table.Installment Name",
+              "nativeQueryRef": "Installment Name",
+              "active": true
+            }
+          ],
+          "showAll": true
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Measures"
+                    }
+                  },
+                  "Property": "Issued Invoices One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Measures.Issued Invoices One Kattameya",
+              "nativeQueryRef": "Issued Invoices One Kattameya"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Measures"
+                    }
+                  },
+                  "Property": "Collected Invoices One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Measures.Collected Invoices One Kattameya",
+              "nativeQueryRef": "Collected Invoices One Kattameya"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Measures"
+                    }
+                  },
+                  "Property": "Collected Amount One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Measures.Collected Amount One Kattameya",
+              "nativeQueryRef": "Collected Amount One Kattameya"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Measures"
+                    }
+                  },
+                  "Property": "Collection Rate One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Measures.Collection Rate One Kattameya",
+              "nativeQueryRef": "Collection Rate One Kattameya"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Measures"
+                    }
+                  },
+                  "Property": "Outstanding Invoices One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Measures.Outstanding Invoices One Kattameya",
+              "nativeQueryRef": "Outstanding Invoices One Kattameya"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Measures"
+                    }
+                  },
+                  "Property": "Outstanding Amount One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Measures.Outstanding Amount One Kattameya",
+              "nativeQueryRef": "Outstanding Amount One Kattameya"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Measures"
+                    }
+                  },
+                  "Property": "Outstanding % One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Measures.Outstanding % One Kattameya",
+              "nativeQueryRef": "Outstanding % One Kattameya"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "One Kattameya Measures"
+                    }
+                  },
+                  "Property": "Invoiced Amounts One Kattameya"
+                }
+              },
+              "queryRef": "One Kattameya Measures.Invoiced Amounts One Kattameya",
+              "nativeQueryRef": "Invoiced Amounts One Kattameya"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "blankRows": [
+        {
+          "properties": {
+            "showBlankRows": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoExpand": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "showExpandCollapseButtons": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a0815a4d577b5931c289",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facts Table"
+              }
+            },
+            "Property": "Installment Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bf55dec9387215f93f28",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "One Kattameya Measures"
+              }
+            },
+            "Property": "Issued Invoices One Kattameya"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "37c333f56e9383f45373",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "One Kattameya Measures"
+              }
+            },
+            "Property": "Collected Invoices One Kattameya"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d9cc450a89993abbac43",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "One Kattameya Measures"
+              }
+            },
+            "Property": "Collected Amount One Kattameya"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d89cb438d32909c30d07",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "One Kattameya Measures"
+              }
+            },
+            "Property": "Collection Rate One Kattameya"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9a49173b690986b60dd2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "One Kattameya Measures"
+              }
+            },
+            "Property": "Outstanding Invoices One Kattameya"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
