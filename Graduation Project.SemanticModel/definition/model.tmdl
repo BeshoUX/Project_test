@@ -28,6 +28,8 @@ ref table LocalDateTable_c175f9fe-2568-470b-a8b0-4938328e42a9
 ref table Calander
 ref table 'General Measures'
 ref table 'One Kattameya Overall Measures'
+ref table 'One Kattameya Bank Measures'
+ref table 'One Kattameya Cash Measures'
 
 ref cultureInfo en-US
 

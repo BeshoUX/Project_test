@@ -1,0 +1,20 @@
+table 'One Kattameya Cash Measures'
+	lineageTag: 8be29a96-96cb-4fc0-8329-79491e8e8c99
+
+	column Column
+		formatString: 0
+		lineageTag: 6c3458b7-baf6-406d-82eb-2e946ce47c73
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'One Kattameya Cash Measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 07ead6340e9a4aa18a6bbf3b93c5b840
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

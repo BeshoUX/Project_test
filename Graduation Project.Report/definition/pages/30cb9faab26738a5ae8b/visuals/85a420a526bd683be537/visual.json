@@ -40,112 +40,112 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Overall Measures"
+                      "Entity": "One Kattameya Bank Measures"
                     }
                   },
-                  "Property": "Issued Invoices One Kattameya"
+                  "Property": "Issued Invoices OK Bank"
                 }
               },
-              "queryRef": "One Kattameya Measures.Issued Invoices One Kattameya",
-              "nativeQueryRef": "Issued Invoices One Kattameya"
+              "queryRef": "One Kattameya Bank Measures.Issued Invoices OK Bank",
+              "nativeQueryRef": "Issued Invoices OK Bank"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Overall Measures"
+                      "Entity": "One Kattameya Bank Measures"
                     }
                   },
-                  "Property": "Collected Invoices One Kattameya"
+                  "Property": "Collected Invoices OK Bank"
                 }
               },
-              "queryRef": "One Kattameya Measures.Collected Invoices One Kattameya",
-              "nativeQueryRef": "Collected Invoices One Kattameya"
+              "queryRef": "One Kattameya Bank Measures.Collected Invoices OK Bank",
+              "nativeQueryRef": "Collected Invoices OK Bank"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Overall Measures"
+                      "Entity": "One Kattameya Bank Measures"
                     }
                   },
-                  "Property": "Collected Amount One Kattameya"
+                  "Property": "Collected Amount OK Bank"
                 }
               },
-              "queryRef": "One Kattameya Measures.Collected Amount One Kattameya",
-              "nativeQueryRef": "Collected Amount One Kattameya"
+              "queryRef": "One Kattameya Bank Measures.Collected Amount OK Bank",
+              "nativeQueryRef": "Collected Amount OK Bank"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Overall Measures"
+                      "Entity": "One Kattameya Bank Measures"
                     }
                   },
-                  "Property": "Collection Rate One Kattameya"
+                  "Property": "Collection Rate OK Bank"
                 }
               },
-              "queryRef": "One Kattameya Measures.Collection Rate One Kattameya",
-              "nativeQueryRef": "Collection Rate One Kattameya"
+              "queryRef": "One Kattameya Bank Measures.Collection Rate OK Bank",
+              "nativeQueryRef": "Collection Rate OK Bank"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Overall Measures"
+                      "Entity": "One Kattameya Bank Measures"
                     }
                   },
-                  "Property": "Outstanding Invoices One Kattameya"
+                  "Property": "Outstanding Invoices OK Bank"
                 }
               },
-              "queryRef": "One Kattameya Measures.Outstanding Invoices One Kattameya",
-              "nativeQueryRef": "Outstanding Invoices One Kattameya"
+              "queryRef": "One Kattameya Bank Measures.Outstanding Invoices OK Bank",
+              "nativeQueryRef": "Outstanding Invoices OK Bank"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Overall Measures"
+                      "Entity": "One Kattameya Bank Measures"
                     }
                   },
-                  "Property": "Outstanding Amount One Kattameya"
+                  "Property": "Outstanding Amount OK Bank"
                 }
               },
-              "queryRef": "One Kattameya Measures.Outstanding Amount One Kattameya",
-              "nativeQueryRef": "Outstanding Amount One Kattameya"
+              "queryRef": "One Kattameya Bank Measures.Outstanding Amount OK Bank",
+              "nativeQueryRef": "Outstanding Amount OK Bank"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Overall Measures"
+                      "Entity": "One Kattameya Bank Measures"
                     }
                   },
-                  "Property": "Outstanding % One Kattameya"
+                  "Property": "Outstanding % OK Bank"
                 }
               },
-              "queryRef": "One Kattameya Measures.Outstanding % One Kattameya",
-              "nativeQueryRef": "Outstanding % One Kattameya"
+              "queryRef": "One Kattameya Bank Measures.Outstanding % OK Bank",
+              "nativeQueryRef": "Outstanding % OK Bank"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Overall Measures"
+                      "Entity": "One Kattameya Bank Measures"
                     }
                   },
-                  "Property": "Invoiced Amounts One Kattameya"
+                  "Property": "Invoiced Amounts OK Bank"
                 }
               },
-              "queryRef": "One Kattameya Measures.Invoiced Amounts One Kattameya",
-              "nativeQueryRef": "Invoiced Amounts One Kattameya"
+              "queryRef": "One Kattameya Bank Measures.Invoiced Amounts OK Bank",
+              "nativeQueryRef": "Invoiced Amounts OK Bank"
             }
           ]
         }
@@ -242,76 +242,6 @@
           }
         },
         "type": "Categorical"
-      },
-      {
-        "name": "bf55dec9387215f93f28",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "One Kattameya Overall Measures"
-              }
-            },
-            "Property": "Issued Invoices One Kattameya"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "37c333f56e9383f45373",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "One Kattameya Overall Measures"
-              }
-            },
-            "Property": "Collected Invoices One Kattameya"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d9cc450a89993abbac43",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "One Kattameya Overall Measures"
-              }
-            },
-            "Property": "Collected Amount One Kattameya"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d89cb438d32909c30d07",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "One Kattameya Overall Measures"
-              }
-            },
-            "Property": "Collection Rate One Kattameya"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9a49173b690986b60dd2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "One Kattameya Overall Measures"
-              }
-            },
-            "Property": "Outstanding Invoices One Kattameya"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
