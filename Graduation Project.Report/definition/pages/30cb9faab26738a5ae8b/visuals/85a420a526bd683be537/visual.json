@@ -40,112 +40,112 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Bank Measures"
+                      "Entity": "One Kattameya Cash Measures"
                     }
                   },
-                  "Property": "Issued Invoices OK Bank"
+                  "Property": "Issued Invoices OK Cash"
                 }
               },
-              "queryRef": "One Kattameya Bank Measures.Issued Invoices OK Bank",
-              "nativeQueryRef": "Issued Invoices OK Bank"
+              "queryRef": "One Kattameya Cash Measures.Issued Invoices OK Cash",
+              "nativeQueryRef": "Issued Invoices OK Cash"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Bank Measures"
+                      "Entity": "One Kattameya Cash Measures"
                     }
                   },
-                  "Property": "Collected Invoices OK Bank"
+                  "Property": "Collected Invoices OK Cash"
                 }
               },
-              "queryRef": "One Kattameya Bank Measures.Collected Invoices OK Bank",
-              "nativeQueryRef": "Collected Invoices OK Bank"
+              "queryRef": "One Kattameya Cash Measures.Collected Invoices OK Cash",
+              "nativeQueryRef": "Collected Invoices OK Cash"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Bank Measures"
+                      "Entity": "One Kattameya Cash Measures"
                     }
                   },
-                  "Property": "Collected Amount OK Bank"
+                  "Property": "Collected Amount OK Cash"
                 }
               },
-              "queryRef": "One Kattameya Bank Measures.Collected Amount OK Bank",
-              "nativeQueryRef": "Collected Amount OK Bank"
+              "queryRef": "One Kattameya Cash Measures.Collected Amount OK Cash",
+              "nativeQueryRef": "Collected Amount OK Cash"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Bank Measures"
+                      "Entity": "One Kattameya Cash Measures"
                     }
                   },
-                  "Property": "Collection Rate OK Bank"
+                  "Property": "Collection Rate OK Cash"
                 }
               },
-              "queryRef": "One Kattameya Bank Measures.Collection Rate OK Bank",
-              "nativeQueryRef": "Collection Rate OK Bank"
+              "queryRef": "One Kattameya Cash Measures.Collection Rate OK Cash",
+              "nativeQueryRef": "Collection Rate OK Cash"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Bank Measures"
+                      "Entity": "One Kattameya Cash Measures"
                     }
                   },
-                  "Property": "Outstanding Invoices OK Bank"
+                  "Property": "Outstanding Invoices OK Cash"
                 }
               },
-              "queryRef": "One Kattameya Bank Measures.Outstanding Invoices OK Bank",
-              "nativeQueryRef": "Outstanding Invoices OK Bank"
+              "queryRef": "One Kattameya Cash Measures.Outstanding Invoices OK Cash",
+              "nativeQueryRef": "Outstanding Invoices OK Cash"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Bank Measures"
+                      "Entity": "One Kattameya Cash Measures"
                     }
                   },
-                  "Property": "Outstanding Amount OK Bank"
+                  "Property": "Outstanding Amount OK Cash"
                 }
               },
-              "queryRef": "One Kattameya Bank Measures.Outstanding Amount OK Bank",
-              "nativeQueryRef": "Outstanding Amount OK Bank"
+              "queryRef": "One Kattameya Cash Measures.Outstanding Amount OK Cash",
+              "nativeQueryRef": "Outstanding Amount OK Cash"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Bank Measures"
+                      "Entity": "One Kattameya Cash Measures"
                     }
                   },
-                  "Property": "Outstanding % OK Bank"
+                  "Property": "Outstanding % OK Cash"
                 }
               },
-              "queryRef": "One Kattameya Bank Measures.Outstanding % OK Bank",
-              "nativeQueryRef": "Outstanding % OK Bank"
+              "queryRef": "One Kattameya Cash Measures.Outstanding % OK Cash",
+              "nativeQueryRef": "Outstanding % OK Cash"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "One Kattameya Bank Measures"
+                      "Entity": "One Kattameya Cash Measures"
                     }
                   },
-                  "Property": "Invoiced Amounts OK Bank"
+                  "Property": "Invoiced Amounts OK Cash"
                 }
               },
-              "queryRef": "One Kattameya Bank Measures.Invoiced Amounts OK Bank",
-              "nativeQueryRef": "Invoiced Amounts OK Bank"
+              "queryRef": "One Kattameya Cash Measures.Invoiced Amounts OK Cash",
+              "nativeQueryRef": "Invoiced Amounts OK Cash"
             }
           ]
         }
