@@ -1,0 +1,20 @@
+table 'Zahra North Coast Bank-Wise Measures'
+	lineageTag: cc5f90eb-01f3-4ce6-bbdf-2e0390aa2ca3
+
+	measure 'Customer rows Zahra North Coast' = COALESCE(CALCULATE(COUNT(Customer_Dim[Customer ID]),'Customer_Dim'[Project Name]="Zahra North Coast"), 0)
+		formatString: 0
+		lineageTag: 6984752a-5778-493e-b701-abe6a04de684
+
+	measure 'Unit Price Zahra North Coast' = COALESCE(CALCULATE(Sum(Customer_Dim[Unit Price]),'Customer_Dim'[Project Name]="Zahra North Coast"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 909e5dc1-e6f3-4072-94fa-d10f7c987c75
+
+	column Column
+		lineageTag: d4721036-f394-4e98-8f2c-8fcae13140bc
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Zahra North Coast Bank-Wise Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

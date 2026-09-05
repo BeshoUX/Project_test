@@ -41,6 +41,18 @@ table 'Lake Front 6 Cash'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Total Adopted Units Cash Lake Front 6' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]), 'Morshedy Projects'[Project Name] = "Lake Front 6",Customer_Dim[BanK]="Cash"), 0)
+		formatString: 0
+		lineageTag: b32a9cc4-7dd9-46b4-8e8a-62db431e630d
+
+	measure 'Records in current segmant Bank Lake Front 6' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]), 'Morshedy Projects'[Project Name] = "Lake Front 6",Customer_Dim[BanK]="Cash"), 0)
+		formatString: 0
+		lineageTag: f55342bd-8c1e-464f-b921-f34896d982de
+
+	measure 'Completion rate Lake Front 6 Cash' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Lake Front 6",Customer_Dim[BanK]="Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ba584ec4-65cc-49fe-b7b8-0dc548063a68
+
 	column Column
 		formatString: 0
 		lineageTag: 9b66c75d-a452-4f85-8a6d-e102cdb27b4c

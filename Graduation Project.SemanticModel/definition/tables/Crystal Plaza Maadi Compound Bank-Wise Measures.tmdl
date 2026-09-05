@@ -1,0 +1,20 @@
+table 'Crystal Plaza Maadi Compound Bank-Wise Measures'
+	lineageTag: aa566054-bf3c-4a81-9f4b-383d85105f91
+
+	measure 'Customer rows Crystal Plaza Maadi Compound' = COALESCE(CALCULATE(COUNT(Customer_Dim[Customer ID]),'Customer_Dim'[Project Name]="Crystal Plaza Maadi Compound"), 0)
+		formatString: 0
+		lineageTag: 9bee71aa-d61f-4d6f-add5-2801cc1032de
+
+	measure 'Unit Price Crystal Plaza Maadi Compound' = COALESCE(CALCULATE(Sum(Customer_Dim[Unit Price]),'Customer_Dim'[Project Name]="Crystal Plaza Maadi Compound"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5d7cb75f-6c51-4981-b9c5-02b2912675f8
+
+	column Column
+		lineageTag: 3b31c7df-4e9c-4815-a2ea-f999ede7fc94
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Crystal Plaza Maadi Compound Bank-Wise Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

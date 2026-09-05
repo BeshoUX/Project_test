@@ -39,6 +39,15 @@ table 'Degla Palms 6 October Compound Bank Measures'
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
+	measure 'Completion Rate Degla Palms 6 October Compound bank' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Degla Palms 6 October Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: 638c1fb9-3d7d-4368-bd33-826c73f684b0
+
+	measure 'Records in current segment Bank Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]),'Morshedy Projects'[Project Name] = "Degla Palms 6 October Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: 172850ca-487f-4468-88fa-84d6a44723b3
+
+	measure 'Total Adopted Units Bank Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]),'Morshedy Projects'[Project Name] = "Degla Palms 6 October Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: 04a4d6c7-7f49-47f0-bb1b-055baf06c522
+
 	column Column
 		formatString: 0
 		lineageTag: 24340b14-fc93-474b-8be9-34370b50c430

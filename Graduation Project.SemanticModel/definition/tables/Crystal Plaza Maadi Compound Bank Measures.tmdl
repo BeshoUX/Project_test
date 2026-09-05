@@ -1,0 +1,53 @@
+table 'Crystal Plaza Maadi Compound Bank Measures'
+	lineageTag: 4cc7a284-9f60-4cbb-941e-bd1eec73a9ff
+
+	measure 'Collected Amount Crystal Plaza Maadi Compound Bank' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 50bbb594-ec98-4e9c-b974-cb4889139232
+
+	measure 'Collected Invoices Crystal Plaza Maadi Compound Bank' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 604a52d6-cd9a-4fc1-9709-b56cad636e44
+
+	measure 'Collection Rate Crystal Plaza Maadi Compound Bank' = COALESCE(CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="Crystal Plaza Maadi Compound", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7ff1c538-ee83-459b-9774-b3dafd25a18b
+
+	measure 'Invoiced Amounts Crystal Plaza Maadi Compound Bank' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 70a9c80f-92bd-462a-83dd-14ca5874985e
+
+	measure 'Issued Invoices Crystal Plaza Maadi Compound Bank' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: b8da487d-5cbd-402e-8fbd-fbfcb0b928e6
+
+	measure 'Outstanding % Crystal Plaza Maadi Compound Bank' = COALESCE(CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7b002dda-ae13-472a-bfcf-44a0c8965d1c
+
+	measure 'Outstanding Amount Crystal Plaza Maadi Compound Bank' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d6824ea1-425f-412c-8b16-7aa6ff746f91
+
+	measure 'Outstanding Invoices Crystal Plaza Maadi Compound Bank' = COALESCE(CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: b8547846-2a63-4c20-b0d5-8273300eea7a
+
+	measure 'Completion Rate Crystal Plaza Maadi Compound bank' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: fe53082b-b700-4910-9fa5-40ec48ddb25f
+
+	measure 'Records in current segment Bank Crystal Plaza Maadi Compound' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]),'Morshedy Projects'[Project Name] = "Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: eee32f66-0d6b-4a3e-9a96-5a0df9f8ed27
+
+	measure 'Total Adopted Units Bank Crystal Plaza Maadi Compound' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]),'Morshedy Projects'[Project Name] = "Crystal Plaza Maadi Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: aff4bf04-a9aa-437b-95bf-cc60340b8542
+
+	column Column
+		lineageTag: 8c6b381c-8893-4ca4-b68b-9750215a0d3c
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Crystal Plaza Maadi Compound Bank Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

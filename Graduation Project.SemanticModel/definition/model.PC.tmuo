@@ -1,0 +1,12 @@
+{
+  "Deployment": {
+    "TargetConnectionString": "localhost:53753",
+    "TargetDatabase": "eefc612d-7ef0-4e6c-87b5-f82020aea6d6",
+    "DeployDataSources": true,
+    "DeployPartitions": true,
+    "DeployRefreshPolicyPartitions": false,
+    "DeployModelRoles": true,
+    "DeployModelRoleMembers": true,
+    "DeploySharedExpressions": true
+  }
+}

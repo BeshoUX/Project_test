@@ -1,0 +1,20 @@
+table 'Degla Landmark Bank-Wise Measures'
+	lineageTag: b1dbcd0f-d09c-41b1-88e8-6e571745b4c7
+
+	measure 'Customer rows Degla Landmark' = COALESCE(CALCULATE(COUNT(Customer_Dim[Customer ID]),'Customer_Dim'[Project Name]="Degla Landmark"), 0)
+		formatString: 0
+		lineageTag: d76892af-c6ca-4ed5-8334-ab514c918a0e
+
+	measure 'Unit Price Degla Landmark' = COALESCE(CALCULATE(Sum(Customer_Dim[Unit Price]),'Customer_Dim'[Project Name]="Degla Landmark"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: aaa1a837-ac4e-4065-8e4d-07db5d6a2b11
+
+	column Column
+		lineageTag: 314b9379-2482-4898-99e3-48f7b6259842
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Degla Landmark Bank-Wise Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

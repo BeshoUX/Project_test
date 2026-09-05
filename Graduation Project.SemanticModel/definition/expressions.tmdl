@@ -1,6 +1,6 @@
 expression 'Crystal Plaza Maadi Compound' =
 		let
-		  Source = Csv.Document(File.Contents("G:\Test\Graduation Project Data Source.xlsm - Crystal Plaza Maadi Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Crystal Plaza Maadi Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Crystal Plaza Maadi Compound"),
@@ -15,7 +15,7 @@ expression 'Crystal Plaza Maadi Compound' =
 
 expression 'Degla Landmark' =
 		let
-		  Source = Csv.Document(File.Contents("G:\Test\Graduation Project Data Source.xlsm - Degla Landmark.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Degla Landmark.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", Int64.Type}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type date}, {"POC", Int64.Type}, {"رقم عقد البيع", type text}, {"Date", type date}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Degla Landmark"),
@@ -30,7 +30,7 @@ expression 'Degla Landmark' =
 
 expression 'Degla Palms 6 October Compound' =
 		let
-		  Source = Csv.Document(File.Contents("G:\Test\Graduation Project Data Source.xlsm - Degla Palms 6 October Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Degla Palms 6 October Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", type text}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Custom", each "Degla Palms 6 October Compound"),
@@ -46,7 +46,7 @@ expression 'Degla Palms 6 October Compound' =
 
 expression 'Lake Front 6' =
 		let
-		  Source = Csv.Document(File.Contents("G:\Test\Graduation Project Data Source.xlsm - Lake Front 6.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Lake Front 6.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", type text}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Lake Front 6"),
@@ -61,7 +61,7 @@ expression 'Lake Front 6' =
 
 expression 'One Kattameya Compound' =
 		let
-		  Source = Csv.Document(File.Contents("G:\Test\Graduation Project Data Source.xlsm - One Kattameya Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - One Kattameya Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type text}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "One Kattameya Compound"),
@@ -76,7 +76,7 @@ expression 'One Kattameya Compound' =
 
 expression Rihana =
 		let
-		  Source = Csv.Document(File.Contents("G:\Test\Graduation Project Data Source.xlsm - Rihana.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Rihana.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1 ", type text}, {"الدفعة 2 ", type text}, {"الدفعة3 ", type text}, {"الدفعة 4 ", type text}, {"الدفعة 5 ", type text}, {"الدفعة 6 ", type text}, {"الدفعة 7 ", type text}, {"مجموع الدفعات المستحقة ", Int64.Type}, {"مجموع الدفعات المدفوعة ", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع ", type text}, {"POC", type number}, {"رقم عقد البيع ", type text}, {"Date", type text}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Rihana"),
@@ -93,7 +93,7 @@ expression Rihana =
 
 expression 'Skyline Katamya Compound' =
 		let
-		  Source = Csv.Document(File.Contents("G:\Test\Graduation Project Data Source.xlsm - Skyline Katamya Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Skyline Katamya Compound.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", type text}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", type number}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", type text}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type date}, {"POC", type number}, {"رقم عقد البيع", type text}, {"Date", type date}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Skyline Katamya Compound"),
@@ -108,7 +108,7 @@ expression 'Skyline Katamya Compound' =
 
 expression 'Zahra North Coast' =
 		let
-		  Source = Csv.Document(File.Contents("G:\Test\Graduation Project Data Source.xlsm - Zahra North Coast.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		  Source = Csv.Document(File.Contents("C:\Users\PC\Documents\GitHub\Project_test\Graduation Project Data Source.xlsm - Zahra North Coast.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 		  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"اسم العميل", type text}, {"رقم الهوية", Int64.Type}, {"رقم الوحدة", Int64.Type}, {"كود الوحدة", type text}, {"سعر الوحدة", Int64.Type}, {"نسبة الانجاز من الاستشاري الهندسي", Int64.Type}, {"جدول الدفعات", type text}, {"الدفعة 1", type text}, {"الدفعة 2", type text}, {"الدفعة3", type text}, {"الدفعة 4", type text}, {"الدفعة 5", type text}, {"الدفعة 6", type text}, {"الدفعة 7", Int64.Type}, {"مجموع الدفعات المستحقة", Int64.Type}, {"مجموع الدفعات المدفوعة", Int64.Type}, {"البنك", type text}, {"تاريخ عقد البيع", type date}, {"POC", Int64.Type}, {"رقم عقد البيع", type text}, {"Date", type text}}),
 		    #"Added Custom" = Table.AddColumn(#"Changed column type", "Project Name", each "Zahra North Coast"),

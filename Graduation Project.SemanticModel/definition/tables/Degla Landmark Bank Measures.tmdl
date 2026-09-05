@@ -1,0 +1,57 @@
+table 'Degla Landmark Bank Measures'
+	lineageTag: 7c7d33ef-653f-4eaa-bec2-36510b93bbd2
+
+	measure 'Collected Amount Degla Landmark Bank' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="Degla Landmark",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b08604e0-a288-4d60-91c0-8781fb3f5ae1
+
+	measure 'Collected Invoices Degla Landmark Bank' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="Degla Landmark",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: d2347d30-3731-4f9f-abba-1033f41cd451
+
+	measure 'Collection Rate Degla Landmark Bank' = COALESCE(CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="Degla Landmark", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9418fc86-228d-4943-a862-2ee7e46500db
+
+	measure 'Invoiced Amounts Degla Landmark Bank' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "Degla Landmark",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 80483874-7cf2-45fd-97c1-4ae76818fdc7
+
+	measure 'Issued Invoices Degla Landmark Bank' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "Degla Landmark",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 02c14791-952f-47a0-8caa-9d90b547adef
+
+	measure 'Outstanding % Degla Landmark Bank' = COALESCE(CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="Degla Landmark",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7b3d7c98-3c4f-4a9e-81f2-d8f4cc2e5b66
+
+	measure 'Outstanding Amount Degla Landmark Bank' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="Degla Landmark",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f588fa32-f2d6-43ac-ae3d-1567a444c3bd
+
+	measure 'Outstanding Invoices Degla Landmark Bank' = COALESCE(CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="Degla Landmark",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 73adf841-1154-4424-a620-6783974413bf
+
+	measure 'Completion Rate Degla Landmark bank' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Degla Landmark",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: 30ea524f-a88f-4cec-a15b-bf438f261a74
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Records in current segment Bank Degla Landmark' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]),'Morshedy Projects'[Project Name] = "Degla Landmark",Customer_Dim[BanK] <> "Cash"),0)
+		formatString: 0
+		lineageTag: e8c12511-3094-4837-8855-ef2b40433286
+
+	measure 'Total Adopted Units Bank Degla Landmark' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]),'Morshedy Projects'[Project Name] = "Degla Landmark",Customer_Dim[BanK] <> "Cash"),0)
+		formatString: 0
+		lineageTag: ec3c5f20-8468-4cb4-a19c-1eae7c75a3db
+
+	column Column
+		lineageTag: a26fcd73-96d3-4f70-95d0-0b6be0ab4f49
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Degla Landmark Bank Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

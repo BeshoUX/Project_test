@@ -4,13 +4,13 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 2945.5062777292915,
+        "x": 9122.61346207737,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 282.12975744255709,
+            "x": 5962.1297574425571,
             "y": 358.4212890428571
           },
           "nodeIndex": "Morshedy Projects",
@@ -23,7 +23,7 @@
         },
         {
           "location": {
-            "x": 431.97998046008405,
+            "x": 6111.9799804600843,
             "y": 0
           },
           "nodeIndex": "Customer_Dim",
@@ -36,7 +36,7 @@
         },
         {
           "location": {
-            "x": 852,
+            "x": 6532,
             "y": 2
           },
           "nodeIndex": "Facts Table",
@@ -49,7 +49,7 @@
         },
         {
           "location": {
-            "x": 578.90567175687829,
+            "x": 6258.9056717568783,
             "y": 416.38931360732289
           },
           "nodeIndex": "Date_Dim",
@@ -62,7 +62,7 @@
         },
         {
           "location": {
-            "x": 1159.5242607183075,
+            "x": 6839.5242607183072,
             "y": 5.6786690858943558
           },
           "nodeIndex": "Calander",
@@ -74,7 +74,7 @@
         },
         {
           "location": {
-            "x": 0,
+            "x": 5680,
             "y": 146.69264089258698
           },
           "nodeIndex": "General Measures",
@@ -86,7 +86,7 @@
         },
         {
           "location": {
-            "x": 1443.5242607183075,
+            "x": 7123.5242607183072,
             "y": 160.19465680366147
           },
           "nodeIndex": "One Kattameya Overall Measures",
@@ -98,7 +98,7 @@
         },
         {
           "location": {
-            "x": 1727.5242607183075,
+            "x": 7407.5242607183072,
             "y": 160.19465680366147
           },
           "nodeIndex": "One Kattameya Bank Measures",
@@ -110,7 +110,7 @@
         },
         {
           "location": {
-            "x": 2011.5242607183075,
+            "x": 7691.5242607183072,
             "y": 160.19465680366147
           },
           "nodeIndex": "One Kattameya Cash Measures",
@@ -122,19 +122,7 @@
         },
         {
           "location": {
-            "x": 2295.5242607183072,
-            "y": 160.19465680366147
-          },
-          "nodeIndex": "OK Bank-Wise Measures",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 2579.5242607183072,
+            "x": 8259.5242607183063,
             "y": 160.19465680366147
           },
           "nodeIndex": "Degla Palms 6 October Compound Overall Measures",
@@ -146,7 +134,7 @@
         },
         {
           "location": {
-            "x": 2863.5242607183072,
+            "x": 8543.5242607183063,
             "y": 160.19465680366147
           },
           "nodeIndex": "Degla Palms 6 October Compound Bank Measures",
@@ -158,7 +146,7 @@
         },
         {
           "location": {
-            "x": 3147.5242607183072,
+            "x": 8827.5242607183063,
             "y": 160.19465680366147
           },
           "nodeIndex": "Degla Palms 6 October Compound Cash Measures",
@@ -170,7 +158,7 @@
         },
         {
           "location": {
-            "x": 3431.5242607183072,
+            "x": 9111.5242607183063,
             "y": 160.19465680366147
           },
           "nodeIndex": "Degla Palms 6 October Compound Bank-wise",
@@ -182,7 +170,7 @@
         },
         {
           "location": {
-            "x": 3715.5242607183072,
+            "x": 9395.5242607183063,
             "y": 160.19465680366147
           },
           "nodeIndex": "Lake Front 6 Overall",
@@ -194,7 +182,7 @@
         },
         {
           "location": {
-            "x": 3999.5242607183072,
+            "x": 9679.5242607183063,
             "y": 160.19465680366147
           },
           "nodeIndex": "Lake Front 6 Bank",
@@ -206,7 +194,7 @@
         },
         {
           "location": {
-            "x": 4283.5242607183072,
+            "x": 9963.5242607183063,
             "y": 160.19465680366147
           },
           "nodeIndex": "Lake Front 6 Cash",
@@ -218,10 +206,282 @@
         },
         {
           "location": {
-            "x": 4567.5242607183072,
+            "x": 10247.524260718306,
             "y": 160.19465680366147
           },
           "nodeIndex": "Lake Front 6 Bank-Wise",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Crystal Plaza Maadi Compound Bank Measures",
+          "nodeLineageTag": "4cc7a284-9f60-4cbb-941e-bd1eec73a9ff",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 136.19465680366147
+          },
+          "nodeIndex": "Crystal Plaza Maadi Compound Bank-Wise Measures",
+          "nodeLineageTag": "aa566054-bf3c-4a81-9f4b-383d85105f91",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Crystal Plaza Maadi Compound Cash Measures",
+          "nodeLineageTag": "b59a248b-4a46-40ea-9867-08befe59b605",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Crystal Plaza Maadi Compound Overall Measures",
+          "nodeLineageTag": "42d6ef81-3675-47e5-a332-bc7b0286be30",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Degla Landmark Bank Measures",
+          "nodeLineageTag": "7c7d33ef-653f-4eaa-bec2-36510b93bbd2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 136.19465680366147
+          },
+          "nodeIndex": "Degla Landmark Bank-Wise Measures",
+          "nodeLineageTag": "b1dbcd0f-d09c-41b1-88e8-6e571745b4c7",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Degla Landmark Cash Measures",
+          "nodeLineageTag": "fa59af9e-174c-41d7-b8e8-9960d504fcb4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1988,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Degla Landmark Overall Measures",
+          "nodeLineageTag": "11a4fab7-bd62-4fcb-b9d0-5d91c84e6e34",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2272,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Rihana Bank Measures",
+          "nodeLineageTag": "1c55f062-cf3b-45e2-bbe7-06b28591ae9e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2556,
+            "y": 136.19465680366147
+          },
+          "nodeIndex": "Rihana Bank-Wise Measures",
+          "nodeLineageTag": "263edadf-8505-41a5-84a4-66afdfec5c74",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2840,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Rihana Cash Measures",
+          "nodeLineageTag": "2d0ab10d-53a6-443c-b77a-902d22212fa6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3124,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Rihana Overall Measures",
+          "nodeLineageTag": "97489ef7-ee70-4f5a-84ff-b457d1863866",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3408,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Skyline Katamya Compound Bank Measures",
+          "nodeLineageTag": "45db4a49-2cd0-4786-b000-aec6f806de25",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3692,
+            "y": 136.19465680366147
+          },
+          "nodeIndex": "Skyline Katamya Compound Bank-Wise Measures",
+          "nodeLineageTag": "78d00cb7-7d60-45e1-9164-b5a252d0eabe",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3976,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Skyline Katamya Compound Cash Measures",
+          "nodeLineageTag": "233841fa-f5b8-4323-b1cc-69c4948e6851",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4260,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Skyline Katamya Compound Overall Measures",
+          "nodeLineageTag": "83af904c-d709-460f-a33f-c152e73393f7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4544,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Zahra North Coast Bank Measures",
+          "nodeLineageTag": "677810d8-2973-466d-ba8b-fa4de92a15fd",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4828,
+            "y": 136.19465680366147
+          },
+          "nodeIndex": "Zahra North Coast Bank-Wise Measures",
+          "nodeLineageTag": "cc5f90eb-01f3-4ce6-bbdf-2e0390aa2ca3",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5112,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Zahra North Coast Cash Measures",
+          "nodeLineageTag": "cd7fff90-7ac0-43fa-8ce3-da1333fee94b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5396,
+            "y": 110.19465680366147
+          },
+          "nodeIndex": "Zahra North Coast Overall Measures",
+          "nodeLineageTag": "a759d061-5fd1-491e-9e5a-62a48c8d48ad",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7975.5242607183072,
+            "y": 160.19465680366147
+          },
+          "nodeIndex": "One Kattameya Bank-Wise Measures",
           "size": {
             "height": 200,
             "width": 234

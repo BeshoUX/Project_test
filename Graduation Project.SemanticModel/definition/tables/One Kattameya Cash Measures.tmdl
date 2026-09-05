@@ -1,43 +1,51 @@
 table 'One Kattameya Cash Measures'
 	lineageTag: 8be29a96-96cb-4fc0-8329-79491e8e8c99
 
-	measure 'Collected Amount OK Cash' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] ="Cash")
+	measure 'Collected Amount OK Cash' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] ="Cash"), 0)
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 0fe72c4f-d30b-4438-a336-dfdf1ea984f4
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
-
-	measure 'Collected Invoices OK Cash' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] = "Cash")
+	measure 'Collected Invoices OK Cash' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] = "Cash"), 0)
 		formatString: 0
 		lineageTag: ed981ee3-e212-44e2-94dc-f02b552b3cd2
 
-	measure 'Collection Rate OK Cash' = CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound", Customer_Dim[BanK] = "Cash")
+	measure 'Collection Rate OK Cash' = COALESCE(CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound", Customer_Dim[BanK] = "Cash"), 0)
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: e5ad8aa0-35bf-48ab-9fac-d1066f59795e
 
-	measure 'Invoiced Amounts OK Cash' = CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "One Kattameya Compound",Customer_Dim[BanK] = "Cash")
+	measure 'Invoiced Amounts OK Cash' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "One Kattameya Compound",Customer_Dim[BanK] = "Cash"), 0)
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 3487716a-36a9-4dfe-bd61-4c735325bf23
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Issued Invoices OK Cash' = CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "One Kattameya Compound",Customer_Dim[BanK] = "Cash")
+	measure 'Issued Invoices OK Cash' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "One Kattameya Compound",Customer_Dim[BanK] = "Cash"), 0)
 		formatString: 0
 		lineageTag: dca532a8-ee09-436a-94e8-c4e6c21095b4
 
-	measure 'Outstanding % OK Cash' = CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] = "Cash")
+	measure 'Outstanding % OK Cash' = COALESCE(CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] = "Cash"), 0)
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 808a8a85-e15b-4e8e-97e8-3ae8c45c229a
 
-	measure 'Outstanding Amount OK Cash' = CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] = "Cash")
+	measure 'Outstanding Amount OK Cash' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] = "Cash"), 0)
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 632cc797-e834-464d-9a31-6d75f3a2c5d1
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Outstanding Invoices OK Cash' = CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] = "Cash")
+	measure 'Outstanding Invoices OK Cash' = COALESCE(CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="One Kattameya Compound",Customer_Dim[BanK] = "Cash"), 0)
 		formatString: 0
 		lineageTag: 17b53108-b8a4-4fce-b4ab-1b8ed732b665
+
+	measure 'Completion Rate One Kattameya cash' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "One Kattameya Compound",Customer_Dim[BanK] = "Cash"),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 138f49b2-ff12-4def-b486-1743dedaa63e
+
+	measure 'Records in current segment Cash One Kattameya' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]),'Morshedy Projects'[Project Name] = "One Kattameya Compound",Customer_Dim[BanK] = "Cash"),0)
+		lineageTag: 2c59dd18-9297-4d66-a0e8-0ed65a388daa
+
+	measure 'Total Adopted Units Cash One Kattameya' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]),'Morshedy Projects'[Project Name] = "One Kattameya Compound",Customer_Dim[BanK] = "Cash"),0)
+		lineageTag: 321218be-bdd7-4e2d-9ea8-726bdf5d5a7a
 
 	column Column
 		formatString: 0

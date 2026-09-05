@@ -1,0 +1,20 @@
+table 'Rihana Bank-Wise Measures'
+	lineageTag: 263edadf-8505-41a5-84a4-66afdfec5c74
+
+	measure 'Customer rows Rihana' = COALESCE(CALCULATE(COUNT(Customer_Dim[Customer ID]),'Customer_Dim'[Project Name]="Rihana"), 0)
+		formatString: 0
+		lineageTag: f1c857c0-1d52-466a-b6f9-f204b81b8b48
+
+	measure 'Unit Price Rihana' = COALESCE(CALCULATE(Sum(Customer_Dim[Unit Price]),'Customer_Dim'[Project Name]="Rihana"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 93cbe18d-5aec-4f61-aeb8-f85b9c98df0a
+
+	column Column
+		lineageTag: 929b88e8-65b5-4c81-bf17-3600a0e916c2
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Rihana Bank-Wise Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

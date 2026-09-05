@@ -18,6 +18,8 @@ annotation PBI_QueryOrder = ["Crystal Plaza Maadi Compound","Degla Landmark","De
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation __TEdtr = 1
+
 ref table 'Morshedy Projects'
 ref table DateTableTemplate_30ae1e6c-1cfc-4166-8791-9b99c593a674
 ref table Customer_Dim
@@ -30,7 +32,7 @@ ref table 'General Measures'
 ref table 'One Kattameya Overall Measures'
 ref table 'One Kattameya Bank Measures'
 ref table 'One Kattameya Cash Measures'
-ref table 'OK Bank-Wise Measures'
+ref table 'One Kattameya Bank-Wise Measures'
 ref table 'Degla Palms 6 October Compound Overall Measures'
 ref table 'Degla Palms 6 October Compound Bank Measures'
 ref table 'Degla Palms 6 October Compound Cash Measures'
@@ -39,6 +41,26 @@ ref table 'Lake Front 6 Overall'
 ref table 'Lake Front 6 Bank'
 ref table 'Lake Front 6 Cash'
 ref table 'Lake Front 6 Bank-Wise'
+ref table 'Rihana Overall Measures'
+ref table 'Skyline Katamya Compound Overall Measures'
+ref table 'Crystal Plaza Maadi Compound Overall Measures'
+ref table 'Zahra North Coast Overall Measures'
+ref table 'Degla Landmark Overall Measures'
+ref table 'Rihana Bank Measures'
+ref table 'Skyline Katamya Compound Bank Measures'
+ref table 'Crystal Plaza Maadi Compound Bank Measures'
+ref table 'Zahra North Coast Bank Measures'
+ref table 'Degla Landmark Bank Measures'
+ref table 'Rihana Cash Measures'
+ref table 'Skyline Katamya Compound Cash Measures'
+ref table 'Crystal Plaza Maadi Compound Cash Measures'
+ref table 'Zahra North Coast Cash Measures'
+ref table 'Degla Landmark Cash Measures'
+ref table 'Rihana Bank-Wise Measures'
+ref table 'Skyline Katamya Compound Bank-Wise Measures'
+ref table 'Crystal Plaza Maadi Compound Bank-Wise Measures'
+ref table 'Zahra North Coast Bank-Wise Measures'
+ref table 'Degla Landmark Bank-Wise Measures'
 
 ref cultureInfo en-US
 

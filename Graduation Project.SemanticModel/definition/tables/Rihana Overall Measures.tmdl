@@ -1,0 +1,59 @@
+table 'Rihana Overall Measures'
+	lineageTag: 97489ef7-ee70-4f5a-84ff-b457d1863866
+
+	measure 'Issued Invoices Rihana' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "Rihana"), 0)
+		formatString: 0
+		lineageTag: 20a2dfc3-555a-4e33-adca-2e461afa8f7b
+
+	measure 'Collected Invoices Rihana' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="Rihana"), 0)
+		formatString: 0
+		lineageTag: d96dd5cc-fa25-40f7-a5dd-6c99f04bb1a3
+
+	measure 'Collected Amount Rihana' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="Rihana"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6751baf0-5578-486d-ba28-f8f5c5a076ee
+
+	measure 'Collection Rate Rihana' = COALESCE(CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="Rihana"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d32b7276-244d-46e4-a8b7-d541fa4699e1
+
+	measure 'Outstanding Invoices Rihana' = COALESCE(CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="Rihana"), 0)
+		formatString: 0
+		lineageTag: 23ff1bb6-9067-41be-89ea-028a6da22352
+
+	measure 'Outstanding Amount Rihana' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="Rihana"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7a5e9d71-bf9a-4f50-a665-6b96af1e59d0
+
+	measure 'Outstanding % Rihana' = COALESCE(CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="Rihana"), 0)
+		lineageTag: fa368a8c-64e3-42c6-903c-3d2f1a702c21
+
+	measure 'Invoiced Amounts Rihana' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "Rihana"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 72860e25-dd34-4656-8666-7ec9c4c31059
+
+	measure 'Completion Rate Rihana' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Rihana"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1b51ca92-d111-48cc-9c16-fcfc052e09c0
+
+	measure 'Records in current segmant Rihana' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]), 'Morshedy Projects'[Project Name] = "Rihana"), 0)
+		formatString: 0
+		lineageTag: e3807378-e263-43f2-81fe-5b35809de106
+
+	measure 'Total Adopted Units Rihana' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]), 'Morshedy Projects'[Project Name] = "Rihana"), 0)
+		formatString: 0
+		lineageTag: bf14b63c-43b6-4223-9d62-bb83acf47706
+
+	measure 'Project Sold Rows Rihana' = COALESCE(CALCULATE(COUNTROWS(Customer_Dim), Customer_Dim[Project Name] = "Rihana"), 0)
+		formatString: 0
+		lineageTag: 5f2e18ed-10fe-4640-9b33-de881877c0ab
+
+	column Column
+		lineageTag: 4514c4e9-17c4-48ec-a807-c4576357c9f5
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Rihana Overall Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

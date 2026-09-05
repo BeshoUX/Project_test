@@ -14,11 +14,11 @@ relationship c4096a36-193f-dc1e-6970-604283e06494
 	fromColumn: 'Facts Table'.'Customer ID'
 	toColumn: Customer_Dim.'Customer ID'
 
-relationship 2307fb99-60a0-d16e-a76a-fbc6b76153d5
-	fromColumn: 'Facts Table'.Date
-	toColumn: Calander.Date
-
 relationship dc48de8e-2606-d82e-b701-313adddb3817
 	fromColumn: Customer_Dim.'Project Name'
 	toColumn: 'Morshedy Projects'.'Project Name'
+
+relationship 2307fb99-60a0-d16e-a76a-fbc6b76153d5
+	fromColumn: 'Facts Table'.Date
+	toColumn: Calander.Date
 

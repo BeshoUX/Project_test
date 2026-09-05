@@ -1,0 +1,53 @@
+table 'Skyline Katamya Compound Bank Measures'
+	lineageTag: 45db4a49-2cd0-4786-b000-aec6f806de25
+
+	measure 'Collected Amount Skyline Katamya Compound Bank' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b55f5691-c218-4ffd-a817-20cca8b4088a
+
+	measure 'Collected Invoices Skyline Katamya Compound Bank' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 116b3edd-4e24-41d2-8d41-7381e556e4f3
+
+	measure 'Collection Rate Skyline Katamya Compound Bank' = COALESCE(CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="Skyline Katamya Compound", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6cf888c0-e0d1-45c6-b54f-4089936a8693
+
+	measure 'Invoiced Amounts Skyline Katamya Compound Bank' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: aa5b82e4-ccd8-4e24-ba34-b9d56e40cbe8
+
+	measure 'Issued Invoices Skyline Katamya Compound Bank' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: a8d70270-9532-4309-8134-1c6d71641b93
+
+	measure 'Outstanding % Skyline Katamya Compound Bank' = COALESCE(CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 24642bd0-793e-493d-8380-73dad358af49
+
+	measure 'Outstanding Amount Skyline Katamya Compound Bank' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a7e5b332-eab5-4365-86ae-798ea68851ae
+
+	measure 'Outstanding Invoices Skyline Katamya Compound Bank' = COALESCE(CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 8ae0139d-8916-4132-a65e-386030e64ba7
+
+	measure 'Completion Rate Skyline Katamya Compound bank' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: a27a128d-bc47-441b-b30a-7e055402f2ac
+
+	measure 'Records in current segment Bank Skyline Katamya Compound' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]),'Morshedy Projects'[Project Name] = "Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: 51f3c8d7-42ab-4d50-8d81-2ee80b430d5f
+
+	measure 'Total Adopted Units Bank Skyline Katamya Compound' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]),'Morshedy Projects'[Project Name] = "Skyline Katamya Compound",Customer_Dim[BanK] <> "Cash"),0)
+		lineageTag: 7bf682a2-c46b-4acf-b4f0-d158476da51c
+
+	column Column
+		lineageTag: da0944a7-8f92-4547-bc9a-657b20da02ad
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Skyline Katamya Compound Bank Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

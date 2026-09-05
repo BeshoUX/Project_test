@@ -1,11 +1,11 @@
-table 'OK Bank-Wise Measures'
+table 'One Kattameya Bank-Wise Measures'
 	lineageTag: 8685dd4e-45fd-4c61-a401-81a7dd79103f
 
-	measure 'Customer rows OK' = CALCULATE(COUNT(Customer_Dim[Customer ID]),'Customer_Dim'[Project Name]="One Kattameya Compound")
+	measure 'Customer rows OK' = COALESCE(CALCULATE(COUNT(Customer_Dim[Customer ID]),'Customer_Dim'[Project Name]="One Kattameya Compound"), 0)
 		formatString: 0
 		lineageTag: 961f6c5f-5695-4c4a-aebd-3f5e74f2c1c8
 
-	measure 'Unit Price OK' = CALCULATE(Sum(Customer_Dim[Unit Price]),'Customer_Dim'[Project Name]="One Kattameya Compound")
+	measure 'Unit Price OK' = COALESCE(CALCULATE(Sum(Customer_Dim[Unit Price]),'Customer_Dim'[Project Name]="One Kattameya Compound"), 0)
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 0ca742c4-5060-4287-aa95-00dfa26ce76e
 
@@ -20,7 +20,7 @@ table 'OK Bank-Wise Measures'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'OK Bank-Wise Measures' = calculated
+	partition 'One Kattameya Bank-Wise Measures' = calculated
 		mode: import
 		source = Row("Column", BLANK())
 

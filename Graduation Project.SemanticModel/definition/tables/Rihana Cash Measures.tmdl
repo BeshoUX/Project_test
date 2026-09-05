@@ -1,0 +1,57 @@
+table 'Rihana Cash Measures'
+	lineageTag: 2d0ab10d-53a6-443c-b77a-902d22212fa6
+
+	measure 'Collected Amount Rihana Cash' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="Rihana",Customer_Dim[BanK] ="Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 849c0a99-9e7f-40ab-920a-71804ce801d2
+
+	measure 'Collected Invoices Rihana Cash' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="Rihana",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 19000c0d-45a2-4cae-9582-ab59f5e87d0d
+
+	measure 'Collection Rate Rihana Cash' = COALESCE(CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="Rihana", Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2b9a6c69-bf25-4178-8784-ab4130994287
+
+	measure 'Invoiced Amounts Rihana Cash' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "Rihana",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b4e5453a-159e-461b-a565-779d73420c9a
+
+	measure 'Issued Invoices Rihana Cash' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "Rihana",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 6a4284b8-c4e8-4b8b-af2d-480ed9da1857
+
+	measure 'Outstanding % Rihana Cash' = COALESCE(CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="Rihana",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b9262464-b913-47d5-a2c6-fd7c664607ab
+
+	measure 'Outstanding Amount Rihana Cash' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="Rihana",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ad2b33bb-9aa1-4ce0-9a1d-8536cb7132c4
+
+	measure 'Outstanding Invoices Rihana Cash' = COALESCE(CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="Rihana",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 3c58ad26-da5f-4fc3-bcf8-0c4b2e8fd24e
+
+	measure 'Completion Rate Rihana cash' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Rihana",Customer_Dim[BanK] = "Cash"),0)
+		lineageTag: 78d138d1-8b5d-4b8a-89bd-e0def48f7a80
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Records in current segment Cash Rihana' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]),'Morshedy Projects'[Project Name] = "Rihana",Customer_Dim[BanK] = "Cash"),0)
+		formatString: 0
+		lineageTag: f23e8ddc-8ecb-4458-a5e2-6a9f9c246284
+
+	measure 'Total Adopted Units Cash Rihana' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]),'Morshedy Projects'[Project Name] = "Rihana",Customer_Dim[BanK] = "Cash"),0)
+		formatString: 0
+		lineageTag: a1f280ba-7813-4ce8-9bbd-05a08b854659
+
+	column Column
+		lineageTag: 9f89877a-4029-4dff-be7c-d1d066f19094
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Rihana Cash Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

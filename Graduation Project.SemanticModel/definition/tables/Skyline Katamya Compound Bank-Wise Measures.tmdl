@@ -1,0 +1,20 @@
+table 'Skyline Katamya Compound Bank-Wise Measures'
+	lineageTag: 78d00cb7-7d60-45e1-9164-b5a252d0eabe
+
+	measure 'Customer rows Skyline Katamya Compound' = COALESCE(CALCULATE(COUNT(Customer_Dim[Customer ID]),'Customer_Dim'[Project Name]="Skyline Katamya Compound"), 0)
+		formatString: 0
+		lineageTag: 97da844f-e33e-4cd1-8ce5-fb585f81d551
+
+	measure 'Unit Price Skyline Katamya Compound' = COALESCE(CALCULATE(Sum(Customer_Dim[Unit Price]),'Customer_Dim'[Project Name]="Skyline Katamya Compound"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9cc683f7-868d-486e-9e15-f0f6c08f51f5
+
+	column Column
+		lineageTag: fba563f0-a3ce-4b1c-b424-df40d4531b4c
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Skyline Katamya Compound Bank-Wise Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d0c2d548d9c103b15d56",
   "position": {
     "x": 444.28571428571433,
@@ -34,7 +34,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "OK Bank-Wise Measures"
+                      "Entity": "One Kattameya Bank-Wise Measures"
                     }
                   },
                   "Property": "Customer rows OK"
@@ -48,7 +48,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "OK Bank-Wise Measures"
+                      "Entity": "One Kattameya Bank-Wise Measures"
                     }
                   },
                   "Property": "Unit Price OK"

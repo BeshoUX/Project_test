@@ -1,0 +1,57 @@
+table 'Zahra North Coast Cash Measures'
+	lineageTag: cd7fff90-7ac0-43fa-8ce3-da1333fee94b
+
+	measure 'Collected Amount Zahra North Coast Cash' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "تم السداد" ,Customer_Dim[Project Name]="Zahra North Coast",Customer_Dim[BanK] ="Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 256101be-f6ad-41be-bb23-540932357d8f
+
+	measure 'Collected Invoices Zahra North Coast Cash' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] = "تم السداد",Customer_Dim[Project Name]="Zahra North Coast",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 95a39129-488a-4153-a189-fb980d3bb5e6
+
+	measure 'Collection Rate Zahra North Coast Cash' = COALESCE(CALCULATE([Collected Invoices] / [Issued Invoices],Customer_Dim[Project Name]="Zahra North Coast", Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d83f9798-11e8-48e0-bb0a-1f43fea8a149
+
+	measure 'Invoiced Amounts Zahra North Coast Cash' = COALESCE(CALCULATE(sum('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] IN {"مستحقة","تم السداد"},Customer_Dim[Project Name]= "Zahra North Coast",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 62a2a144-10be-481a-9181-4e7afa670fca
+
+	measure 'Issued Invoices Zahra North Coast Cash' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]),'Facts Table'[Installment status ] IN {"مستحقة" , "تم السداد"},'Customer_Dim'[Project Name] = "Zahra North Coast",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 3d5e25c1-1ac4-42ee-88dd-12f12740d539
+
+	measure 'Outstanding % Zahra North Coast Cash' = COALESCE(CALCULATE([Outstanding Invoices]/[Issued Invoices],Customer_Dim[Project Name]="Zahra North Coast",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 56ebb295-eebe-4974-8e26-8d5e28afa98b
+
+	measure 'Outstanding Amount Zahra North Coast Cash' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]),'Facts Table'[Installment status ] = "مستحقة",Customer_Dim[Project Name]="Zahra North Coast",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 660ac62c-9fd6-41fa-b157-fb5aa7a0218b
+
+	measure 'Outstanding Invoices Zahra North Coast Cash' = COALESCE(CALCULATE([Issued Invoices] - [Collected Invoices],Customer_Dim[Project Name]="Zahra North Coast",Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 614a844d-ce5d-42e4-9eef-bf0cc387965d
+
+	measure 'Completion Rate Zahra North Coast cash' = COALESCE(CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Zahra North Coast",Customer_Dim[BanK] = "Cash"),0)
+		lineageTag: e16ae028-d5a6-4a69-91f0-621d5ff8aea6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Records in current segment Cash Zahra North Coast' = COALESCE(CALCULATE(COUNT(Customer_Dim[Unit No]),'Morshedy Projects'[Project Name] = "Zahra North Coast",Customer_Dim[BanK] = "Cash"),0)
+		formatString: 0
+		lineageTag: 2606a236-b7d0-4314-bd4b-80b65588a564
+
+	measure 'Total Adopted Units Cash Zahra North Coast' = COALESCE(CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]),'Morshedy Projects'[Project Name] = "Zahra North Coast",Customer_Dim[BanK] = "Cash"),0)
+		formatString: 0
+		lineageTag: 50504864-6eca-4056-a809-39778dc817c1
+
+	column Column
+		lineageTag: 6616acfc-8d81-4d2c-87a0-9a1e3f52624d
+		isNameInferred
+		sourceColumn: [Column]
+
+	partition 'Zahra North Coast Cash Measures' = calculated
+		mode: import
+		source = ROW("Column", BLANK())
+
