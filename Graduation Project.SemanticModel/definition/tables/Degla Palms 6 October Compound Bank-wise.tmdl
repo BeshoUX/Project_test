@@ -1,0 +1,48 @@
+table 'Degla Palms 6 October Compound Bank-wise'
+	lineageTag: 053782db-5c69-4de6-9520-b985f04a9716
+
+	measure 'Degla Palms 6 October Compound Customer Rows' = CALCULATE(COUNTROWS(Customer_Dim), Customer_Dim[Project Name] = "Degla Palms 6 October Compound", KEEPFILTERS( Customer_Dim[BanK] <> "Cash"))
+		formatString: 0
+		lineageTag: 31245bbd-cd66-4363-9240-c277cfeef9ad
+
+	measure 'Degla Palms 6 October Compound Unit Price' = CALCULATE(SUM(Customer_Dim[Unit Price]), Customer_Dim[Project Name] = "Degla Palms 6 October Compound", KEEPFILTERS(Customer_Dim[BanK] <> "Cash"))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c2a409d7-c55e-48ee-b4e2-b958f7563df4
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Amount Collected Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", KEEPFILTERS(Customer_Dim[BanK] <> "Cash")), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ba4f153d-e26c-4152-a07c-e88cee1d9254
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Invoiced Amount Degla Palms 6 October Compound' = CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] IN {"مستحقة", "تم السداد"}, Customer_Dim[Project Name] = "Degla Palms 6 October Compound", KEEPFILTERS(Customer_Dim[BanK] <> "Cash"))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 20f3f8da-7b42-45f5-999b-8d4a7f191523
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Outstanding Balance Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", KEEPFILTERS(Customer_Dim[BanK] <> "Cash")), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2dde5f85-1513-4e06-ad56-607d6a9aa72e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		formatString: 0
+		lineageTag: 7c44c71b-9b96-4ab6-ba0f-45030767ebbf
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Degla Palms 6 October Compound Bank-wise' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = fc8ac41fbcaa49c69e72455aa4f61064
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

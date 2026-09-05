@@ -1,0 +1,60 @@
+table 'Lake Front 6 Bank'
+	lineageTag: b061783a-67f5-4a81-a6a2-53ef97c50d3f
+
+	measure 'Bank Collected Amount Lake Front 6' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Lake Front 6", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1de72bc6-31a9-4cf4-a9b2-ca7230cae15b
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Bank Collected Invoices Lake Front 6' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Lake Front 6", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: c691dc2c-9f0b-4c76-af4f-343770b1dc20
+
+	measure 'Bank Issued Invoices Lake Front 6' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] IN {"تم السداد", "مستحقة"}, Customer_Dim[Project Name] = "Lake Front 6", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 43708bed-f26e-4416-a03b-473c58a3153b
+
+	measure 'Bank Outstanding Amount Lake Front 6' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Lake Front 6", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f6616102-de42-40eb-be6f-f0404c5181a1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Bank Outstanding Invoices Lake Front 6' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Lake Front 6", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 7c60e422-4bbe-4735-8154-76369224ebef
+
+	measure 'Bank Total Invoice Amount Lake Front 6' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), Customer_Dim[Project Name] = "Lake Front 6", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 4b431b27-30eb-4c95-9f49-a1fc7f04c96c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Bank Collection Rate Lake Front 6' = DIVIDE([Bank Collected Invoices Lake Front 6], [Bank Issued Invoices Lake Front 6], 0)
+		lineageTag: 7f62a9bd-dfb1-4671-8405-fb03d0f2e8f7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Bank Outstanding % Lake Front 6' = DIVIDE([Bank Outstanding Invoices Lake Front 6], [Bank Issued Invoices Lake Front 6], 0)
+		lineageTag: a3c01b90-7aa7-400c-80b0-2e7df5ccb667
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 695d1668-c1bc-48ac-a78a-8f41a766b4d2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Lake Front 6 Bank' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 851cb99d924d406ca5857fc7a9d65745
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

@@ -31,6 +31,14 @@ ref table 'One Kattameya Overall Measures'
 ref table 'One Kattameya Bank Measures'
 ref table 'One Kattameya Cash Measures'
 ref table 'OK Bank-Wise Measures'
+ref table 'Degla Palms 6 October Compound Overall Measures'
+ref table 'Degla Palms 6 October Compound Bank Measures'
+ref table 'Degla Palms 6 October Compound Cash Measures'
+ref table 'Degla Palms 6 October Compound Bank-wise'
+ref table 'Lake Front 6 Overall'
+ref table 'Lake Front 6 Bank'
+ref table 'Lake Front 6 Cash'
+ref table 'Lake Front 6 Bank-Wise'
 
 ref cultureInfo en-US
 

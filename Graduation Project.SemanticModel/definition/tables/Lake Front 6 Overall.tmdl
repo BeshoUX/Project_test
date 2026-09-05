@@ -1,0 +1,85 @@
+table 'Lake Front 6 Overall'
+	lineageTag: 3e35476f-fd0f-415e-b4e0-eb42d00ab125
+
+	measure 'Collected Amount Lake Front 6' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Lake Front 6"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0eab2e09-a81f-4a0a-ad24-1a32c09bb565
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Collected Invoices Lake Front 6' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] IN {"تم السداد"}, Customer_Dim[Project Name] = "Lake Front 6"), 0)
+		formatString: 0
+		lineageTag: 88dfae02-66bf-4152-87a3-a0d9eeccb526
+
+	measure 'Issued Invoices Lake Front 6' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] IN {"مستحقة", "تم السداد"}, Customer_Dim[Project Name] = "Lake Front 6"), 0)
+		formatString: 0
+		lineageTag: 40e436ea-7012-42ee-af81-546fc95c8eef
+
+	measure 'Outstanding Amount Lake Front 6' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Lake Front 6"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a232faab-1430-4d30-93ca-1ecb75b0c123
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Outstanding Invoices Lake Front 6' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Lake Front 6"), 0)
+		formatString: 0
+		lineageTag: 16db116d-7266-411d-9658-0085b74c3ff5
+
+	measure 'Project Sold Rows Lake Front 6' = ```
+			CALCULATE(COUNTROWS(Customer_Dim), Customer_Dim[Project Name] = "Lake Front 6")
+			
+			```
+		formatString: 0
+		lineageTag: ece6780c-d809-48cf-bc33-777b41eb72bc
+
+	measure 'Records in current segmant Lake Front 6' = CALCULATE(COUNT(Customer_Dim[Unit No]), 'Morshedy Projects'[Project Name] = "Lake Front 6")
+		formatString: 0
+		lineageTag: 658abd88-753f-4949-8015-4693c154adc5
+
+	measure 'Total Adopted Units Lake Front 6' = CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]), 'Morshedy Projects'[Project Name] = "Lake Front 6")
+		formatString: 0
+		lineageTag: 5f7dbcbe-21da-4935-a89c-890b56b55302
+
+	measure 'Total Invoice Amount Lake Front 6' = ```
+			COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), Customer_Dim[Project Name] = "Lake Front 6"), 0)
+			
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bb4a15b0-ee80-46c4-ab22-fda3b0a58c2c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Outstanding % Lake Front 6' = DIVIDE([Outstanding Invoices Lake Front 6], [Issued Invoices Lake Front 6], 0)
+		lineageTag: 1347528a-a0c5-4c27-bdfd-fd271574bdf3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Completion Rate Lake Front 6' = ```
+			CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Lake Front 6")
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 33297d4a-b789-4121-a51e-3d083f0b6025
+
+	measure 'Collection Rate Lake Front 6' = DIVIDE([Collected Invoices Lake Front 6], [Issued Invoices Lake Front 6], 0)
+		lineageTag: e507b9d3-f03c-4281-b2a9-acc472f9adda
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 9e9cb568-c5b0-4adb-9968-e1d8ad1b923f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Lake Front 6 Overall' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 3fdf65672d35432c94a540546ab5ea99
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

@@ -1,0 +1,280 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "0cb50d1f38a04f83d3b0",
+  "position": {
+    "x": 433.63636363636363,
+    "y": 273.63636363636363,
+    "z": 4000,
+    "height": 545.45454545454538,
+    "width": 1486.3636363636363,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts Table"
+                    }
+                  },
+                  "Property": "Installment Name"
+                }
+              },
+              "queryRef": "Facts Table.Installment Name",
+              "nativeQueryRef": "Installment Name",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Overall Measures"
+                    }
+                  },
+                  "Property": "Issued Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Overall Measures.Issued Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Issued Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Overall Measures"
+                    }
+                  },
+                  "Property": "Collected Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Overall Measures.Collected Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Collected Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Overall Measures"
+                    }
+                  },
+                  "Property": "Collected Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Overall Measures.Collected Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Collected Amount Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Overall Measures"
+                    }
+                  },
+                  "Property": "Collection Rate Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Overall Measures.Collection Rate Degla Palms 6 October Compound",
+              "nativeQueryRef": "Collection Rate Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Overall Measures"
+                    }
+                  },
+                  "Property": "Outstanding Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Overall Measures.Outstanding Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Outstanding Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Overall Measures"
+                    }
+                  },
+                  "Property": "Outstanding Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Overall Measures.Outstanding Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Outstanding Amount Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Overall Measures"
+                    }
+                  },
+                  "Property": "Outstanding % Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Overall Measures.Outstanding % Degla Palms 6 October Compound",
+              "nativeQueryRef": "Outstanding % Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Overall Measures"
+                    }
+                  },
+                  "Property": "Total Invoice Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Overall Measures.Total Invoice Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Total Invoice Amount Degla Palms 6 October Compound"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "showExpandCollapseButtons": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "autoExpand": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoExpand": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

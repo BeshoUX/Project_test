@@ -1,0 +1,57 @@
+table 'Degla Palms 6 October Compound Cash Measures'
+	lineageTag: 033c0286-6dec-4103-9fb6-db682ad6ced6
+
+	measure 'Cash Collected Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] = "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 55070fad-b1fb-4090-8be9-d724e2d511c1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Cash Collected Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 0b959980-b05b-4c15-89dd-c0d27c3bc4c6
+
+	measure 'Cash Issued Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] IN {"تم السداد", "مستحقة"}, Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 16b3a467-5440-4355-8a7a-2df23475d33c
+
+	measure 'Cash Collection Rate Degla Palms 6 October Compound' = DIVIDE([Cash Collected Invoices Degla Palms 6 October Compound], [Cash Issued Invoices Degla Palms 6 October Compound], 0)
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: baafa4ac-3598-4734-8e56-396c4db77f05
+
+	measure 'Cash Outstanding Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] = "Cash"), 0)
+		formatString: 0
+		lineageTag: 31fdffee-142f-4521-869f-3c5bdd1e8c9e
+
+	measure 'Cash Outstanding % Degla Palms 6 October Compound' = DIVIDE([Cash Outstanding Invoices Degla Palms 6 October Compound], [Cash Issued Invoices Degla Palms 6 October Compound], 0)
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: faa7b2fe-320c-47bf-a5d7-89866633fbdd
+
+	measure 'Cash Total Invoice Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] = "Cash"), 0)
+		lineageTag: 29336ef1-37ac-449a-a532-246fd5872c9e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cash Outstanding Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), Customer_Dim[Project Name]= "Degla Palms 6 October Compound", Customer_Dim[BanK] = "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7807300f-7bd3-447c-ba95-eb5077e0b95c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		formatString: 0
+		lineageTag: a8be9723-0e61-4fbd-8cda-d900689e3960
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Degla Palms 6 October Compound Cash Measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = d717141e94e8459a96b154f199298000
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

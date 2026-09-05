@@ -1,0 +1,329 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "67d29ae606e4e89a371d",
+  "position": {
+    "x": 16.382252559726961,
+    "y": 217.88395904436859,
+    "z": 0,
+    "height": 642.18430034129688,
+    "width": 1903.617747440273,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer_Dim"
+                    }
+                  },
+                  "Property": "BanK"
+                }
+              },
+              "queryRef": "Customer_Dim.BanK",
+              "nativeQueryRef": "BanK",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank-wise"
+                    }
+                  },
+                  "Property": "Degla Palms 6 October Compound Customer Rows"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank-wise.Degla Palms 6 October Compound Customer Rows",
+              "nativeQueryRef": "Degla Palms 6 October Compound Customer Rows"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank-wise"
+                    }
+                  },
+                  "Property": "Degla Palms 6 October Compound Unit Price"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank-wise.Degla Palms 6 October Compound Unit Price",
+              "nativeQueryRef": "Degla Palms 6 October Compound Unit Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank-wise"
+                    }
+                  },
+                  "Property": "Invoiced Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank-wise.Invoiced Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Invoiced Amount Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank-wise"
+                    }
+                  },
+                  "Property": "Amount Collected Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank-wise.Amount Collected Degla Palms 6 October Compound",
+              "nativeQueryRef": "Amount Collected Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank-wise"
+                    }
+                  },
+                  "Property": "Outstanding Balance Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank-wise.Outstanding Balance Degla Palms 6 October Compound",
+              "nativeQueryRef": "Outstanding Balance Degla Palms 6 October Compound"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c8c9bb2f1ade821077a4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Customer_Dim"
+              }
+            },
+            "Property": "BanK"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "c",
+              "Entity": "Customer_Dim",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "c"
+                              }
+                            },
+                            "Property": "BanK"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Cash'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "67b22eeae75e152d9910",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Degla Palms 6 October Compound Bank-wise"
+              }
+            },
+            "Property": "Degla Palms 6 October Compound Unit Price"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ffeded026289cb197e71",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Degla Palms 6 October Compound Bank-wise"
+              }
+            },
+            "Property": "Degla Palms 6 October Compound Customer Rows"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "82c503a933c292f50877",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Degla Palms 6 October Compound Bank-wise"
+              }
+            },
+            "Property": "Invoiced Amount Degla Palms 6 October Compound"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "913053c61fcd53af0c6c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Degla Palms 6 October Compound Bank-wise"
+              }
+            },
+            "Property": "Amount Collected Degla Palms 6 October Compound"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3b1e2f36c11172d155b7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Degla Palms 6 October Compound Bank-wise"
+              }
+            },
+            "Property": "Outstanding Balance Degla Palms 6 October Compound"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

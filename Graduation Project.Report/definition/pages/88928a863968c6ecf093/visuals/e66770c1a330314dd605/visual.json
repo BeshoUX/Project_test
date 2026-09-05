@@ -1,0 +1,245 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e66770c1a330314dd605",
+  "position": {
+    "x": 175.29010238907847,
+    "y": 227.71331058020476,
+    "z": 0,
+    "height": 624.1638225255972,
+    "width": 1567.7815699658702,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts Table"
+                    }
+                  },
+                  "Property": "Installment Name"
+                }
+              },
+              "queryRef": "Facts Table.Installment Name",
+              "nativeQueryRef": "Installment Name",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank Measures"
+                    }
+                  },
+                  "Property": "Bank Issued Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank Measures.Bank Issued Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Bank Issued Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank Measures"
+                    }
+                  },
+                  "Property": "Bank Collected Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank Measures.Bank Collected Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Bank Collected Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank Measures"
+                    }
+                  },
+                  "Property": "Bank Collected Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank Measures.Bank Collected Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Bank Collected Amount Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank Measures"
+                    }
+                  },
+                  "Property": "Bank Collection Rate Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank Measures.Bank Collection Rate Degla Palms 6 October Compound",
+              "nativeQueryRef": "Bank Collection Rate Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank Measures"
+                    }
+                  },
+                  "Property": "Bank Outstanding Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank Measures.Bank Outstanding Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Bank Outstanding Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank Measures"
+                    }
+                  },
+                  "Property": "Bank Outstanding Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank Measures.Bank Outstanding Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Bank Outstanding Amount Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank Measures"
+                    }
+                  },
+                  "Property": "Bank Outstanding % Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank Measures.Bank Outstanding % Degla Palms 6 October Compound",
+              "nativeQueryRef": "Bank Outstanding % Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Bank Measures"
+                    }
+                  },
+                  "Property": "Bank Total Invoice Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Bank Measures.Bank Total Invoice Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Bank Total Invoice Amount Degla Palms 6 October Compound"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

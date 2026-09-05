@@ -1,0 +1,58 @@
+table 'Degla Palms 6 October Compound Bank Measures'
+	lineageTag: b2735e6d-56de-4015-903e-f170f10a63b6
+
+	measure 'Bank Issued Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] IN {"تم السداد", "مستحقة"}, Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 99161863-09db-4936-a6c0-d30b8e9be067
+
+	measure 'Bank Collected Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 3a11a2c8-8451-4a34-aa03-33324e6df710
+
+	measure 'Bank Collected Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 53ff08d8-dc0c-45e5-ac4a-a10a399ba00b
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Bank Collection Rate Degla Palms 6 October Compound' = DIVIDE([Bank Collected Invoices Degla Palms 6 October Compound], [Bank Issued Invoices Degla Palms 6 October Compound], 0)
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: d8709782-0927-4068-8b1a-b13eca0c2a11
+
+	measure 'Bank Outstanding Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: 0
+		lineageTag: 7918c467-ff81-4b17-afe7-f5419baa2b12
+
+	measure 'Bank Outstanding Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 39658907-809f-459e-896c-b8b4d640747b
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Bank Outstanding % Degla Palms 6 October Compound' = DIVIDE([Bank Outstanding Invoices Degla Palms 6 October Compound], [Bank Issued Invoices Degla Palms 6 October Compound], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 51352e9a-9f61-4d3e-9c06-e3e7b60c7c0a
+
+	measure 'Bank Total Invoice Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), Customer_Dim[Project Name] = "Degla Palms 6 October Compound", Customer_Dim[BanK] <> "Cash"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7fe79c80-0424-49ad-bdf0-e59ce237e391
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		formatString: 0
+		lineageTag: 24340b14-fc93-474b-8be9-34370b50c430
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Degla Palms 6 October Compound Bank Measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = e3b3ceec92094a0ba5fea04abc4d104b
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

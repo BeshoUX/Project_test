@@ -1,0 +1,48 @@
+table 'Lake Front 6 Bank-Wise'
+	lineageTag: 83d5673d-da94-4b2c-b024-51f6c3ef0764
+
+	measure 'Amount Collected Lake Front 6' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Lake Front 6", KEEPFILTERS(Customer_Dim[BanK] <> "Cash")), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1aaa906c-64e8-4775-88c8-c1840ae5e243
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Lake Front 6 Customer Rows' = CALCULATE(COUNTROWS(Customer_Dim), Customer_Dim[Project Name] = "Lake Front 6", KEEPFILTERS( Customer_Dim[BanK] <> "Cash"))
+		formatString: 0
+		lineageTag: 2ca71016-b17e-4f59-bf6b-215bbb8135dd
+
+	measure 'Lake Front 6 Unit Price' = CALCULATE(SUM(Customer_Dim[Unit Price]), Customer_Dim[Project Name] = "Lake Front 6", KEEPFILTERS(Customer_Dim[BanK] <> "Cash"))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5bc3abff-4a88-4176-a3a3-b05606b5a545
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Invoiced Amount Lake Front 6' = CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] IN {"مستحقة", "تم السداد"}, Customer_Dim[Project Name] = "Lake Front 6", KEEPFILTERS(Customer_Dim[BanK] <> "Cash"))
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 230d3bb8-a963-470f-903e-98942357bd5c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Outstanding Balance Lake Front 6' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Lake Front 6", KEEPFILTERS(Customer_Dim[BanK] <> "Cash")), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1bdb115e-6e66-44d6-b9cb-0ebf9b4fa571
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		formatString: 0
+		lineageTag: dff13067-e95d-4e62-bb52-002f80c4dfda
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Lake Front 6 Bank-Wise' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = ca6b607cc315436ba9d134a4827726fe
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

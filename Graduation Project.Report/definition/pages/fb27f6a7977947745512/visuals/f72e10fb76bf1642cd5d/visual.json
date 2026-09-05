@@ -1,0 +1,283 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "f72e10fb76bf1642cd5d",
+  "position": {
+    "x": 283.41296928327642,
+    "y": 194.94880546075083,
+    "z": 0,
+    "height": 532.42320819112626,
+    "width": 1580.8873720136517,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Facts Table"
+                    }
+                  },
+                  "Property": "Installment Name"
+                }
+              },
+              "queryRef": "Facts Table.Installment Name",
+              "nativeQueryRef": "Installment Name",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Cash Measures"
+                    }
+                  },
+                  "Property": "Cash Issued Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Cash Measures.Cash Issued Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Cash Issued Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Cash Measures"
+                    }
+                  },
+                  "Property": "Cash Collected Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Cash Measures.Cash Collected Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Cash Collected Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Cash Measures"
+                    }
+                  },
+                  "Property": "Cash Collected Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Cash Measures.Cash Collected Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Cash Collected Amount Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Cash Measures"
+                    }
+                  },
+                  "Property": "Cash Collection Rate Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Cash Measures.Cash Collection Rate Degla Palms 6 October Compound",
+              "nativeQueryRef": "Cash Collection Rate Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Cash Measures"
+                    }
+                  },
+                  "Property": "Cash Outstanding Invoices Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Cash Measures.Cash Outstanding Invoices Degla Palms 6 October Compound",
+              "nativeQueryRef": "Cash Outstanding Invoices Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Cash Measures"
+                    }
+                  },
+                  "Property": "Cash Outstanding % Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Cash Measures.Cash Outstanding % Degla Palms 6 October Compound",
+              "nativeQueryRef": "Cash Outstanding % Degla Palms 6 October Compound"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Degla Palms 6 October Compound Cash Measures"
+                    }
+                  },
+                  "Property": "Cash Total Invoice Amount Degla Palms 6 October Compound"
+                }
+              },
+              "queryRef": "Degla Palms 6 October Compound Cash Measures.Cash Total Invoice Amount Degla Palms 6 October Compound",
+              "nativeQueryRef": "Cash Total Invoice Amount Degla Palms 6 October Compound"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowTotal": [
+        {
+          "properties": {
+            "applyToHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "72c4bfc288c9aead6e93",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Facts Table"
+              }
+            },
+            "Property": "Installment Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ced7de09a0b1c6cbd04c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Degla Palms 6 October Compound Cash Measures"
+              }
+            },
+            "Property": "Cash Issued Invoices Degla Palms 6 October Compound"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

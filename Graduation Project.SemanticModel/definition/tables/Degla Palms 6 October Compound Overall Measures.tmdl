@@ -1,0 +1,73 @@
+table 'Degla Palms 6 October Compound Overall Measures'
+	lineageTag: 4d74ba1e-be64-46e2-b8cf-4f449e91a4e2
+
+	measure 'Completion Rate' = CALCULATE(AVERAGE(Customer_Dim[POC]),Customer_Dim[Project Name] = "Degla Palms 6 October Compound")
+		lineageTag: 62e883da-5968-46bb-b596-ab26c52d3e90
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Records in current segmant' = CALCULATE(COUNT(Customer_Dim[Unit No]), 'Morshedy Projects'[Project Name] = "Degla Palms 6 October Compound")
+		formatString: 0
+		lineageTag: 62f0cbfa-1ed7-4f56-b472-aac6d2b3a5db
+
+	measure 'Total Adopted Units' = CALCULATE(SUM('Morshedy Projects'[Adopted Total Units]), 'Morshedy Projects'[Project Name] = "Degla Palms 6 October Compound")
+		formatString: #,0
+		lineageTag: 224f8e34-0fc4-42ab-a4fd-728657dddba1
+
+	measure 'Project Sold Rows' = CALCULATE(COUNTROWS(Customer_Dim), Customer_Dim[Project Name] = "Degla Palms 6 October Compound")
+		formatString: 0
+		lineageTag: e57cc1dd-7977-4a4b-9a16-bf07a321e7eb
+
+	measure 'Issued Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] IN {"مستحقة", "تم السداد"}, Customer_Dim[Project Name] = "Degla Palms 6 October Compound"), 0)
+		formatString: 0
+		lineageTag: e19749cd-9052-4d8b-ba49-4b3ea1cbffc6
+
+	measure 'Collected Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] IN {"تم السداد"}, Customer_Dim[Project Name] = "Degla Palms 6 October Compound"), 0)
+		formatString: 0
+		lineageTag: d95fe9c2-a8bc-42be-9958-4c0f952f46da
+
+	measure 'Collected Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "تم السداد", Customer_Dim[Project Name] = "Degla Palms 6 October Compound"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f689244e-35e6-4943-87e1-dea7e1db78e0
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Collection Rate Degla Palms 6 October Compound' = DIVIDE([Collected Invoices Degla Palms 6 October Compound], [Issued Invoices Degla Palms 6 October Compound], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 350edf7d-7a2a-40b7-9611-a1d4309bbc1e
+
+	measure 'Outstanding Invoices Degla Palms 6 October Compound' = COALESCE(CALCULATE(COUNT('Facts Table'[Installment Name]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Degla Palms 6 October Compound"), 0)
+		formatString: 0
+		lineageTag: bb7e0c85-11f9-4709-8b5a-7fca13d66fc4
+
+	measure 'Outstanding Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), 'Facts Table'[Installment status ] = "مستحقة", Customer_Dim[Project Name] = "Degla Palms 6 October Compound"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6a791091-9eff-4d5a-b601-a6b2c735296c
+
+	measure 'Outstanding % Degla Palms 6 October Compound' = DIVIDE([Outstanding Invoices Degla Palms 6 October Compound], [Issued Invoices Degla Palms 6 October Compound], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 17366aa2-5742-42c4-b493-c77fcfd2b359
+
+	measure 'Total Invoice Amount Degla Palms 6 October Compound' = COALESCE(CALCULATE(SUM('Facts Table'[Installment Amount]), Customer_Dim[Project Name] = "Degla Palms 6 October Compound"), 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 805467db-b2d3-41ef-9103-13eacb71a884
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Column
+		formatString: 0
+		lineageTag: 60cae25e-aa96-4a1c-b821-51e9c7fdc141
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Degla Palms 6 October Compound Overall Measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 455e4ec01870469fb1201448a3e13590
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
